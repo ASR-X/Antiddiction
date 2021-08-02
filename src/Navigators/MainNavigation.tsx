@@ -38,9 +38,7 @@ export type resetParams = {
 }
 
 const HomeNavigator = (): React.ReactElement => {
-  return (
-    <NavBar />
-  )
+  return <NavBar />
 }
 
 const AuthNavigator = (): React.ReactElement => {
