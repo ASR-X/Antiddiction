@@ -34,7 +34,7 @@ import {
   SplashTitle,
   SplashText,
   SplashTextSign,
-  StyledButton
+  StyledButton,
 } from '../Components/styles'
 
 // Colors
@@ -61,7 +61,9 @@ const SplashScreen = ({ navigation }): React.ReactElement => {
         <SplashTitle>Make Food Price Comparisons Quickly!</SplashTitle>
         <SplashText>Sign in with your account</SplashText>
         <SplashButtonView>
-          <StyledButton onPress={() => navigation.navigate(MainRoutes.Question1)}>
+          <StyledButton
+            onPress={() => navigation.navigate(MainRoutes.Question1)}
+          >
             <SplashTextSign>Get Started!</SplashTextSign>
           </StyledButton>
         </SplashButtonView>

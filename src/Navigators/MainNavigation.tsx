@@ -48,7 +48,7 @@ const SurveyNavigator = (): React.ReactElement => {
         headerLeftContainerStyle: {
           paddingLeft: 10,
         },
-        headerLeft: ()=> null,
+        headerLeft: () => null,
       }}
       initialRouteName={MainRoutes.SplashScreen}
     >
@@ -56,14 +56,8 @@ const SurveyNavigator = (): React.ReactElement => {
         name={MainRoutes.SplashScreen}
         component={SplashScreen}
       />
-      <MainStack.Screen
-        name={MainRoutes.Question1}
-        component={Question1}
-      />
-      <MainStack.Screen
-        name={MainRoutes.Question2}
-        component={Question2}
-      />
+      <MainStack.Screen name={MainRoutes.Question1} component={Question1} />
+      <MainStack.Screen name={MainRoutes.Question2} component={Question2} />
     </MainStack.Navigator>
   )
 }

@@ -12,7 +12,6 @@ import {
 } from 'firebase/auth'
 import * as Linking from 'expo-linking'
 
-
 const initialState = {
   user: {
     factor1: null as any,
@@ -29,11 +28,10 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setFactor: (state, action: PayloadAction<any>) =>
-      {
-        state.user =  {...state.user, ...action.payload}
-        return state
-      },
+    setFactor: (state, action: PayloadAction<any>) => {
+      state.user = { ...state.user, ...action.payload }
+      return state
+    },
   },
   extraReducers: (builder) => {
     // builder.addCase(resetPass.fulfilled, (state, { payload }) => {})
