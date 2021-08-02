@@ -4,10 +4,26 @@ import { MainRoutes } from '../Navigators/routes'
 
 //Cardview
 import CardView from '../Components/CardView'
+import { BezierGraph } from '../Components/BezierGraph'
+import { ProgressRings } from '../Components/ProgressRings'
+import { ChonseSelect } from 'react-native-chonse-select'
 
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'
-
+const data = [
+  {
+    value: '0',
+    label: '1 M',
+  },
+  {
+    value: '1',
+    label: '3 M',
+  },
+  {
+    value: '2',
+    label: '1 ,Y',
+  },
+]
 //Components
 import {
   SafeAreaView,
@@ -16,6 +32,7 @@ import {
   ScrollView,
   FlatList,
   Image,
+  Dimensions,
 } from 'react-native'
 
 import {
@@ -34,7 +51,13 @@ import {
   CardTitle,
   CardDetails,
 } from '../Components/styles'
-
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+} from 'react-native-chart-kit'
 //Slider
 import VerticalSwiper from '../Components/VerticalSwiper'
 
@@ -66,31 +89,50 @@ const Home = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-        <VerticalSwiper />
-        <CategoryContainer>
-          <Categories label="Meat" navigation={navigation} title="Meat" />
-          <Categories label="Seafood" navigation={navigation} title="Seafood" />
-          <Categories label="Poultry" navigation={navigation} title="Poultry" />
-        </CategoryContainer>
-        <CategoryContainer>
-          <Categories label="Produce" navigation={navigation} title="Produce" />
-          <Categories label="Frozen" navigation={navigation} title="Frozen" />
-          <Categories label="Dairy" navigation={navigation} title="Dairy" />
-        </CategoryContainer>
-
-        <Text style={{ fontWeight: 'bold', padding: 5, alignSelf: 'center' }}>
-          Recently Viewed
-        </Text>
-        <FlatList
-          data={RecentlyViewed}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
+        <Text
           style={{
-            paddingLeft: 20,
-            paddingRight: 20,
-            flex: 1,
-            paddingBottom: 50,
-            marginTop: 10,
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+            alignSelf: 'flex-start',
+          }}
+        >
+          Days Clean
+        </Text>
+        <ChonseSelect
+          height={25}
+          style={{ marginLeft: 15, marginBottom: 10 }}
+          data={data}
+          initValue={'0'}
+          backgroundColor="#000000"
+        />
+
+        <ProgressRings data={[0.4, 0.6, 0.8]} />
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+            alignSelf: 'flex-start',
+          }}
+        >
+          Risk Analysis
+        </Text>
+        <BezierGraph
+          data={{
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [
+              {
+                data: [
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                ],
+              },
+            ],
           }}
         />
       </SafeAreaView>

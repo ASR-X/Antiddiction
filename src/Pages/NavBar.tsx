@@ -89,7 +89,7 @@ const HomeStackScreen = ({ navigation }) => {
         headerTintColor: black,
       }}
     >
-      <HomeStack.Screen
+      <HomeStack.Screen //this is a commenbt
         name={MainRoutes.Home}
         component={Home}
         options={{
@@ -98,8 +98,8 @@ const HomeStackScreen = ({ navigation }) => {
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <SearchIcon navigation={navigation} />
-              <ProfilePictureComp navigation={navigation} />
+              {/* <SearchIcon navigation={navigation} /> */}
+              {/* <ProfilePictureComp navigation={navigation} /> */}
             </View>
           ),
         }}
