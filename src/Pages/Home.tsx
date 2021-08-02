@@ -16,7 +16,7 @@ import {
   ScrollView,
   FlatList,
   Image,
-  Dimensions
+  Dimensions,
 } from 'react-native'
 
 import {
@@ -41,7 +41,7 @@ import {
   PieChart,
   ProgressChart,
   ContributionGraph,
-} from 'react-native-chart-kit';
+} from 'react-native-chart-kit'
 //Slider
 import VerticalSwiper from '../Components/VerticalSwiper'
 
@@ -73,45 +73,51 @@ const Home = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-        
-        <Text style={{ fontSize: 18,fontWeight: 'bold', padding: 15, alignSelf: 'flex-start' }}>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+            alignSelf: 'flex-start',
+          }}
+        >
           Risk Analysis
         </Text>
-        
+
         <LineChart
           data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [
-                  {
-                    data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                    ],
-                  },
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [
+              {
+                data: [
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
                 ],
-              }}
-              width={Dimensions.get('window').width} // from react-native
-              height={220}
-              chartConfig={{
-                backgroundColor: '#0000ff',
-                backgroundGradientFrom: '#ffffff',
-                backgroundGradientTo: '#ffffff',
-                decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(0, 30, 255, ${opacity})`,
-                style: {
-                  borderRadius: 16,
-                },
-              }}
-              bezier
-              style={{
-                marginVertical: 8,
-                borderRadius: 1,
-              }}
-      />
+              },
+            ],
+          }}
+          width={Dimensions.get('window').width} // from react-native
+          height={220}
+          chartConfig={{
+            backgroundColor: '#0000ff',
+            backgroundGradientFrom: '#ffffff',
+            backgroundGradientTo: '#ffffff',
+            decimalPlaces: 2, // optional, defaults to 2dp
+            color: (opacity = 1) => `rgba(0, 30, 255, ${opacity})`,
+            style: {
+              borderRadius: 16,
+            },
+          }}
+          bezier
+          style={{
+            marginVertical: 8,
+            borderRadius: 1,
+          }}
+        />
       </SafeAreaView>
     </View>
   )
