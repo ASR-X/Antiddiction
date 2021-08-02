@@ -12,13 +12,6 @@ import { selectUser } from '../Redux/slices/user'
 
 //Screens Auth
 import SplashScreen from '../Pages/SplashScreen'
-import SignIn from '../Pages/SignIn'
-import SignUp from '../Pages/SignUp'
-import ConfirmEmail from '../Pages/ConfirmEmail'
-import OTP from '../Pages/OTP'
-import ResetPassword from '../Pages/ResetPassword'
-import Confirmation from '../Pages/Confirmation'
-import NewUserWelcome from '../Pages/NewUserWelcome'
 import FoodAccounts from '../Pages/FoodAccounts'
 
 import { getAuth } from 'firebase/auth'
@@ -30,7 +23,6 @@ import NavBar from '../Pages/NavBar'
 const { primary, tertiary, white, black } = Colors
 import userSlice from '../Redux/slices/user'
 import { createDrawerNavigator } from '@react-navigation/drawer'
-import { DrawerContent } from '../Components/DrawerContent'
 
 export type resetParams = {
   mode: string
