@@ -70,7 +70,7 @@ const SurveyNavigator = (): React.ReactElement => {
 
 const MainNavigator = (): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-  if (!reduxUser.Home) return <SurveyNavigator />
+  if (!reduxUser.age) return <SurveyNavigator />
   else return <HomeNavigator />
 }
 
