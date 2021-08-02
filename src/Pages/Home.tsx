@@ -17,7 +17,7 @@ import {
   ScrollView,
   FlatList,
   Image,
-  Dimensions
+  Dimensions,
 } from 'react-native'
 
 import {
@@ -42,7 +42,7 @@ import {
   PieChart,
   ProgressChart,
   ContributionGraph,
-} from 'react-native-chart-kit';
+} from 'react-native-chart-kit'
 //Slider
 import VerticalSwiper from '../Components/VerticalSwiper'
 
@@ -88,26 +88,21 @@ const Home = ({ navigation }): React.ReactElement => {
         </Text>      
         <BezierGraph
           data={{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                datasets: [
-                  {
-                    data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                    ],
-                  },
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [
+              {
+                data: [
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
+                  Math.random() * 100,
                 ],
-              }}
-              
-        />
-        
-        
-
-      </SafeAreaView>
+              },
+            ],
+          }}/>
+      </SafeAreaView>      
     </View>
   )
 }
