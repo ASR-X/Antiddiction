@@ -4,7 +4,8 @@ import { MainRoutes } from '../Navigators/routes'
 
 //Cardview
 import CardView from '../Components/CardView'
-
+import {BezierGraph} from '../Components/BezierGraph'
+import {ProgressRings} from '../Components/ProgressRings'
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'
 
@@ -75,10 +76,17 @@ const Home = ({ navigation }): React.ReactElement => {
       >
         
         <Text style={{ fontSize: 18,fontWeight: 'bold', padding: 15, alignSelf: 'flex-start' }}>
-          Risk Analysis
+          Days Clean
         </Text>
-        
-        <LineChart
+       
+        <ProgressRings
+          data = {[0.4, 0.6, 0.8]}
+          
+        />  
+        <Text style={{ fontSize: 18,fontWeight: 'bold', padding: 15, alignSelf: 'flex-start' }}>
+          Risk Analysis
+        </Text>      
+        <BezierGraph
           data={{
                 labels: ['January', 'February', 'March', 'April', 'May', 'June'],
                 datasets: [
@@ -94,24 +102,11 @@ const Home = ({ navigation }): React.ReactElement => {
                   },
                 ],
               }}
-              width={Dimensions.get('window').width} // from react-native
-              height={220}
-              chartConfig={{
-                backgroundColor: '#0000ff',
-                backgroundGradientFrom: '#ffffff',
-                backgroundGradientTo: '#ffffff',
-                decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(0, 30, 255, ${opacity})`,
-                style: {
-                  borderRadius: 16,
-                },
-              }}
-              bezier
-              style={{
-                marginVertical: 8,
-                borderRadius: 1,
-              }}
-      />
+              
+        />
+        
+        
+
       </SafeAreaView>
     </View>
   )
