@@ -3,8 +3,8 @@ import React from 'react'
 const MeatData = [
   {
     id: '12345',
-    title: 'Beef Ground Bulk 81%-19%',
-    price: 10.99,
+    title: 'Beef Ground Bulk 69%-19%',
+    price: 1000.99,
     minimumPurchase: 50,
     weight: 40,
     shelfLife: 14,

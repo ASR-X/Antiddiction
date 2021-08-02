@@ -16,6 +16,7 @@ import {
   ScrollView,
   FlatList,
   Image,
+  Dimensions
 } from 'react-native'
 
 import {
@@ -34,7 +35,13 @@ import {
   CardTitle,
   CardDetails,
 } from '../Components/styles'
-
+import {
+  LineChart,
+  BarChart,
+  PieChart,
+  ProgressChart,
+  ContributionGraph,
+} from 'react-native-chart-kit';
 //Slider
 import VerticalSwiper from '../Components/VerticalSwiper'
 
@@ -66,33 +73,45 @@ const Home = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-        <VerticalSwiper />
-        <CategoryContainer>
-          <Categories label="Meat" navigation={navigation} title="Meat" />
-          <Categories label="Seafood" navigation={navigation} title="Seafood" />
-          <Categories label="Poultry" navigation={navigation} title="Poultry" />
-        </CategoryContainer>
-        <CategoryContainer>
-          <Categories label="Produce" navigation={navigation} title="Produce" />
-          <Categories label="Frozen" navigation={navigation} title="Frozen" />
-          <Categories label="Dairy" navigation={navigation} title="Dairy" />
-        </CategoryContainer>
-
-        <Text style={{ fontWeight: 'bold', padding: 5, alignSelf: 'center' }}>
-          Recently Viewed
+        
+        <Text style={{ fontSize: 18,fontWeight: 'bold', padding: 15, alignSelf: 'flex-start' }}>
+          Risk Analysis
         </Text>
-        <FlatList
-          data={RecentlyViewed}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          style={{
-            paddingLeft: 20,
-            paddingRight: 20,
-            flex: 1,
-            paddingBottom: 50,
-            marginTop: 10,
-          }}
-        />
+        
+        <LineChart
+          data={{
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [
+                  {
+                    data: [
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                      Math.random() * 100,
+                    ],
+                  },
+                ],
+              }}
+              width={Dimensions.get('window').width} // from react-native
+              height={220}
+              chartConfig={{
+                backgroundColor: '#0000ff',
+                backgroundGradientFrom: '#ffffff',
+                backgroundGradientTo: '#ffffff',
+                decimalPlaces: 2, // optional, defaults to 2dp
+                color: (opacity = 1) => `rgba(0, 30, 255, ${opacity})`,
+                style: {
+                  borderRadius: 16,
+                },
+              }}
+              bezier
+              style={{
+                marginVertical: 8,
+                borderRadius: 1,
+              }}
+      />
       </SafeAreaView>
     </View>
   )

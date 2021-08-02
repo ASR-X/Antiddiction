@@ -98,7 +98,7 @@ const HomeStackScreen = ({ navigation }) => {
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <SearchIcon navigation={navigation} />
+              {/* <SearchIcon navigation={navigation} /> */}
               <ProfilePictureComp navigation={navigation} />
             </View>
           ),
