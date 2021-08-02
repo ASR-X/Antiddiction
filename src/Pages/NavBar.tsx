@@ -55,7 +55,7 @@ const NavBar = (): React.ReactElement => {
           } else if (route.name === 'Sysco') {
             iconName = focused ? 'business' : 'business-outline'
           } else if (route.name === 'US Foods') {
-            iconName = focused ? 'business' : 'business-outline'
+            iconName = focused ? 'checkbox' : 'checkbox-outline'
           }
 
           // You can return any component that you like here!
@@ -242,7 +242,7 @@ const UsFoodsStackScreen = ({ navigation }) => {
         name={MainRoutes.UsFoods}
         component={UsFood}
         options={{
-          title: '',
+          title: 'lalala',
           headerShown: false,
           headerLeft: () => (
             <Icon.Button

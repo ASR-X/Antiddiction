@@ -13,6 +13,8 @@ export enum MainRoutes {
   NavBar = 'NavBar',
   Sysco = 'Sysco',
   UsFoods = 'US Foods',
+  Therapy = 'Therapy',
+  Survery = 'Survey',
   EditProfile = 'Edit Profile',
   CardListScreen = 'Card List',
   CardItemDetails = 'Card Item Details',
