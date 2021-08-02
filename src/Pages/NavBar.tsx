@@ -40,7 +40,7 @@ const ProfileStack = createStackNavigator()
 const UsFoodsStack = createStackNavigator()
 const Tab = createBottomTabNavigator()
 
-const NavBar = ({ navigation }): React.ReactElement => {
+const NavBar = (): React.ReactElement => {
   const Tab = createBottomTabNavigator()
   return (
     <Tab.Navigator
@@ -95,15 +95,6 @@ const HomeStackScreen = ({ navigation }) => {
         options={{
           title: 'Home',
           headerLeftContainerStyle: { marginLeft: 10 },
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              backgroundColor={white}
-              color={black}
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>

@@ -38,11 +38,8 @@ export type resetParams = {
 }
 
 const HomeNavigator = (): React.ReactElement => {
-  const Drawer = createDrawerNavigator()
   return (
-    <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-      <Drawer.Screen name={MainRoutes.NavBar} component={NavBar} />
-    </Drawer.Navigator>
+    <NavBar />
   )
 }
 
@@ -128,7 +125,7 @@ const MainNavigator = (): React.ReactElement => {
 }
 
 const MainNavigation = (): React.ReactElement => {
-  return <MainNavigator></MainNavigator>
+  return <HomeNavigator />
 }
 
 export default MainNavigation
