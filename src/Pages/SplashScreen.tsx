@@ -22,6 +22,7 @@ import {
   StatusBar,
   StyleSheet,
   Dimensions,
+  Button,
 } from 'react-native'
 
 import {
@@ -33,6 +34,7 @@ import {
   SplashTitle,
   SplashText,
   SplashTextSign,
+  StyledButton
 } from '../Components/styles'
 
 // Colors
@@ -59,24 +61,9 @@ const SplashScreen = ({ navigation }): React.ReactElement => {
         <SplashTitle>Make Food Price Comparisons Quickly!</SplashTitle>
         <SplashText>Sign in with your account</SplashText>
         <SplashButtonView>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(MainRoutes.SignIn)}
-          >
-            <LinearGradient
-              colors={['#FFA07A', '#FF6347']}
-              style={{
-                width: 150,
-                height: 40,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 20,
-                flexDirection: 'row',
-              }}
-            >
-              <SplashTextSign>Get Started!</SplashTextSign>
-              <MaterialIcons name="navigate-next" color={white} size={15} />
-            </LinearGradient>
-          </TouchableOpacity>
+          <StyledButton onPress={() => navigation.navigate(MainRoutes.Question1)}>
+            <SplashTextSign>Get Started!</SplashTextSign>
+          </StyledButton>
         </SplashButtonView>
       </Animatable.View>
     </View>
@@ -88,7 +75,7 @@ export default SplashScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FF6347',
+    backgroundColor: '#2110FB',
   },
   header: {
     flex: 2,

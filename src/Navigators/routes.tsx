@@ -4,14 +4,11 @@ import { resetParams } from './MainNavigation'
 
 export enum MainRoutes {
   SplashScreen = 'Splash Screen',
-  SignIn = 'Sign In',
-  SignUp = 'Sign Up',
+  Question1 = 'Question 1',
+  Question2 = 'Question 2',
+  Question3 = 'Question 3',
   Welcome = 'Welcome',
   Home = 'Home',
-  ConfirmEmail = 'Confirm Email',
-  OTP = 'OTP',
-  ResetPassword = 'Reset Password',
-  Confirmation = 'Confirmation',
   Profile = 'Profile',
   NavBar = 'NavBar',
   Sysco = 'Sysco',
@@ -30,15 +27,12 @@ export enum MainRoutes {
 
 export type MainStackParamList = {
   [MainRoutes.SplashScreen]: undefined
-  [MainRoutes.SignIn]: undefined
-  [MainRoutes.SignUp]: undefined
   [MainRoutes.Welcome]: undefined
   [MainRoutes.Home]: { update: boolean } | undefined // just an example, "update" will later be used for version checks
-  [MainRoutes.ConfirmEmail]: undefined
-  [MainRoutes.OTP]: undefined
-  [MainRoutes.ResetPassword]: resetParams
-  [MainRoutes.Confirmation]: undefined
   [MainRoutes.Profile]: undefined
+  [MainRoutes.Question1]: undefined
+  [MainRoutes.Question2]: undefined
+  [MainRoutes.Question3]: undefined
   [MainRoutes.NavBar]: undefined
   [MainRoutes.Sysco]: undefined
   [MainRoutes.UsFoods]: undefined

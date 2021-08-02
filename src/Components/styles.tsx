@@ -20,7 +20,7 @@ const height_logo = height * 0.28
 // colors
 export const Colors = {
   white: '#ffffff',
-  primary: '#FF6347',
+  primary: '#2110FB',
   secondary: '#f36b69',
   highlight: '#f6c949',
   red: '#EF4444',
@@ -529,6 +529,37 @@ export const SplashHeaderView = styled.View`
   align-items: center;
 `
 
+export const QuestionNextButton = styled.TouchableOpacity`
+  border-width: 1px;
+  border-color: ${primary};
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  height: 70px;
+  background-color: ${white};
+  border-radius: 100px;
+`
+
+export const QuestionTitle = styled.Text`
+  color: ${white};
+  font-size: 45px;
+  font-weight: bold;
+`
+export const QuestionText = styled.Text`
+  color: ${white};
+  margin-left: 10px;
+  font-size: 27px;
+`
+
+export const QuestionHeaderView = styled.View`
+  flex: 0.05;
+  justify-content: center;
+  align-items: center;
+`
+
 export const SplashFooter = styled.View`
   flex: 1;
   background-color: ${white};
@@ -544,7 +575,7 @@ export const SplashLogo = styled.Image`
 `
 
 export const SplashTitle = styled.Text`
-  color: ${red};
+  color: #2110FB;
   font-size: 30px;
   font-weight: bold;
 `

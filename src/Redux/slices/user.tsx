@@ -12,29 +12,16 @@ import {
 } from 'firebase/auth'
 import * as Linking from 'expo-linking'
 
-// export const login = createAsyncThunk(
-//   'users/login',
-//   async (
-//     userData: { email: string; password: string },
-//     { rejectWithValue }: any
-//   ) => {
-//     const { email, password } = userData
-//     return signInWithEmailAndPassword(getAuth(Firebase), email, password)
-//       .then((response) => {
-//         return {
-//           email: response.user.email,
-//           fullName: response.user.displayName,
-//           uid: response.user.uid,
-//         }
-//       })
-//       .catch((err) => {
-//         return rejectWithValue(err.code)
-//       })
-//   }
-// )
 
 const initialState = {
-  user: {},
+  user: {
+    factor1: null as any,
+    factor2: null as any,
+    factor3: null as any,
+    age: null as any,
+    firstAge: null as any,
+    Home: null as any,
+  },
   error: null as any,
 }
 
@@ -42,8 +29,11 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<any>) =>
-      (state.user = action.payload),
+    setFactor: (state, action: PayloadAction<any>) =>
+      {
+        state.user =  {...state.user, ...action.payload}
+        return state
+      },
   },
   extraReducers: (builder) => {
     // builder.addCase(resetPass.fulfilled, (state, { payload }) => {})

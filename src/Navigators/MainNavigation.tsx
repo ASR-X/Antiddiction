@@ -23,6 +23,8 @@ import NavBar from '../Pages/NavBar'
 const { primary, tertiary, white, black } = Colors
 import userSlice from '../Redux/slices/user'
 import { createDrawerNavigator } from '@react-navigation/drawer'
+import { Question1 } from '../Pages/Question1'
+import { Question2 } from '../Pages/Question2'
 
 export type resetParams = {
   mode: string
@@ -33,7 +35,7 @@ const HomeNavigator = (): React.ReactElement => {
   return <NavBar />
 }
 
-const AuthNavigator = (): React.ReactElement => {
+const SurveyNavigator = (): React.ReactElement => {
   return (
     <MainStack.Navigator
       screenOptions={{
@@ -46,6 +48,7 @@ const AuthNavigator = (): React.ReactElement => {
         headerLeftContainerStyle: {
           paddingLeft: 10,
         },
+        headerLeft: ()=> null,
       }}
       initialRouteName={MainRoutes.SplashScreen}
     >
@@ -54,40 +57,12 @@ const AuthNavigator = (): React.ReactElement => {
         component={SplashScreen}
       />
       <MainStack.Screen
-        name={MainRoutes.SignIn}
-        component={SignIn}
-        options={{ headerShown: false }}
+        name={MainRoutes.Question1}
+        component={Question1}
       />
       <MainStack.Screen
-        name={MainRoutes.SignUp}
-        component={SignUp}
-        options={{ headerShown: false }}
-      />
-      <MainStack.Screen
-        name={MainRoutes.NewUserWelcome}
-        component={NewUserWelcome}
-        options={{ headerShown: true }}
-      />
-      <MainStack.Screen
-        name={MainRoutes.FoodAccounts}
-        component={FoodAccounts}
-        options={{ headerShown: true }}
-      />
-
-      <MainStack.Screen
-        name={MainRoutes.ConfirmEmail}
-        component={ConfirmEmail}
-        options={{ headerTintColor: white }}
-      />
-      <MainStack.Screen name={MainRoutes.OTP} component={OTP} />
-      <MainStack.Screen
-        name={MainRoutes.ResetPassword}
-        component={ResetPassword}
-        options={{ headerShown: true }}
-      />
-      <MainStack.Screen
-        name={MainRoutes.Confirmation}
-        component={Confirmation}
+        name={MainRoutes.Question2}
+        component={Question2}
       />
     </MainStack.Navigator>
   )
@@ -95,27 +70,12 @@ const AuthNavigator = (): React.ReactElement => {
 
 const MainNavigator = (): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-  let auth = true
-  const user = getAuth(Firebase).currentUser
-  if (user && reduxUser.uid === user.uid) auth = true
-  else if (user && reduxUser.uid !== user.uid) {
-    userSlice.actions.setUser(user)
-    auth = true
-  } else if (!user && reduxUser.uid) {
-    userSlice.actions.setUser({
-      email: null as string,
-      fullName: null as string,
-      uid: null as string,
-    })
-    auth = false
-  } else auth = false
-
-  if (!auth) return <AuthNavigator />
+  if (!reduxUser.Home) return <SurveyNavigator />
   else return <HomeNavigator />
 }
 
 const MainNavigation = (): React.ReactElement => {
-  return <HomeNavigator />
+  return <MainNavigator />
 }
 
 export default MainNavigation
