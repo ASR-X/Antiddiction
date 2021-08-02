@@ -50,55 +50,14 @@ const userSlice = createSlice({
       (state.user = action.payload),
   },
   extraReducers: (builder) => {
-    // The `builder` callback form is used here because it provides correctly typed reducers from the action creators
-    builder.addCase(login.fulfilled, (state, { payload }) => {
-      state.user = payload
-    })
-    builder.addCase(login.rejected, (state, action) => {
-      console.log(action.payload)
-      if (action.payload) {
-        // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
-        state.error = action.payload
-      }
-    })
-    builder.addCase(signup.fulfilled, (state, { payload }) => {
-      state.user = payload
-    })
-    builder.addCase(signup.rejected, (state, action) => {
-      console.log(action.payload)
-      if (action.payload) {
-        // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
-        state.error = action.payload
-      }
-    })
-    builder.addCase(logout.fulfilled, (state, { payload }) => {
-      state.user = payload
-    })
-    builder.addCase(logout.rejected, (state, action) => {
-      console.log(action.payload)
-      if (action.payload) {
-        // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
-        state.error = action.payload
-      }
-    })
-    builder.addCase(sendReset.fulfilled, (state, { payload }) => {
-      state.user = payload
-    })
-    builder.addCase(sendReset.rejected, (state, action) => {
-      console.log(action.payload)
-      if (action.payload) {
-        // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
-        state.error = action.payload
-      }
-    })
-    builder.addCase(resetPass.fulfilled, (state, { payload }) => {})
-    builder.addCase(resetPass.rejected, (state, action) => {
-      console.log(action.payload)
-      if (action.payload) {
-        // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
-        state.error = action.payload
-      }
-    })
+    // builder.addCase(resetPass.fulfilled, (state, { payload }) => {})
+    // builder.addCase(resetPass.rejected, (state, action) => {
+    //   console.log(action.payload)
+    //   if (action.payload) {
+    //     // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
+    //     state.error = action.payload
+    //   }
+    // })
   },
 })
 
