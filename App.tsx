@@ -21,9 +21,9 @@ const App = (): React.ReactElement => {
 
   return (
     <Provider store={store}>
-        <NavigationContainer>
-          <RootStack />
-        </NavigationContainer>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
     </Provider>
   )
 }
