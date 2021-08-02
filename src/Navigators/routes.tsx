@@ -14,7 +14,7 @@ export enum MainRoutes {
   Sysco = 'Sysco',
   UsFoods = 'US Foods',
   Therapy = 'Therapy',
-  Survery = 'Survey',
+  Survey = 'Survey',
   EditProfile = 'Edit Profile',
   CardListScreen = 'Card List',
   CardItemDetails = 'Card Item Details',

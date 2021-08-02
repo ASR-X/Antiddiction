@@ -47,14 +47,13 @@ const NavBar = (): React.ReactElement => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName
-
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline'
           } else if (route.name === 'Profile') {
             iconName = focused ? 'person' : 'person-outline'
-          } else if (route.name === 'Sysco') {
-            iconName = focused ? 'business' : 'business-outline'
-          } else if (route.name === 'US Foods') {
+          } else if (route.name === 'Therapy') {
+            iconName = focused ? 'heart' : 'heart-outline'
+          } else if (route.name === 'Survey') {
             iconName = focused ? 'checkbox' : 'checkbox-outline'
           }
 
@@ -68,8 +67,8 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.Sysco} component={Sysco} />
-      <Tab.Screen name={MainRoutes.UsFoods} component={UsFoodsStackScreen} />
+      <Tab.Screen name={MainRoutes.Therapy} component={Sysco} />
+      <Tab.Screen name={MainRoutes.Survey} component={UsFoodsStackScreen} />
       <Tab.Screen name={MainRoutes.Profile} component={ProfileStackScreen} />
     </Tab.Navigator>
   )
