@@ -89,19 +89,19 @@ const HomeStackScreen = ({ navigation }) => {
         headerTintColor: black,
       }}
     >
-      <HomeStack.Screen //this is a commenbt
+      <HomeStack.Screen
         name={MainRoutes.Home}
         component={Home}
         options={{
           title: 'Home',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerRightContainerStyle: { marginRight: 10 },
-          headerRight: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              {/* <SearchIcon navigation={navigation} /> */}
-              {/* <ProfilePictureComp navigation={navigation} /> */}
-            </View>
-          ),
+          // headerRight: () => (
+          //   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          //     {/* <SearchIcon navigation={navigation} /> */}
+          //     {/* ProfilePictureComp navigation={navigation} /> */}
+          //   </View>
+          // ),
         }}
       />
       <HomeStack.Screen
