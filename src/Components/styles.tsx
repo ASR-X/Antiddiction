@@ -575,7 +575,7 @@ export const SplashLogo = styled.Image`
 `
 
 export const SplashTitle = styled.Text`
-  color: #2110FB;
+  color: #2110fb;
   font-size: 30px;
   font-weight: bold;
 `
