@@ -4,8 +4,8 @@ import { MainRoutes } from '../Navigators/routes'
 
 //Cardview
 import CardView from '../Components/CardView'
-import {BezierGraph} from '../Components/BezierGraph'
-import {ProgressRings} from '../Components/ProgressRings'
+import { BezierGraph } from '../Components/BezierGraph'
+import { ProgressRings } from '../Components/ProgressRings'
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'
 
@@ -74,18 +74,28 @@ const Home = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-        
-        <Text style={{ fontSize: 18,fontWeight: 'bold', padding: 15, alignSelf: 'flex-start' }}>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+            alignSelf: 'flex-start',
+          }}
+        >
           Days Clean
         </Text>
-       
-        <ProgressRings
-          data = {[0.4, 0.6, 0.8]}
-          
-        />  
-        <Text style={{ fontSize: 18,fontWeight: 'bold', padding: 15, alignSelf: 'flex-start' }}>
+
+        <ProgressRings data={[0.4, 0.6, 0.8]} />
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+            alignSelf: 'flex-start',
+          }}
+        >
           Risk Analysis
-        </Text>      
+        </Text>
         <BezierGraph
           data={{
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -101,8 +111,9 @@ const Home = ({ navigation }): React.ReactElement => {
                 ],
               },
             ],
-          }}/>
-      </SafeAreaView>      
+          }}
+        />
+      </SafeAreaView>
     </View>
   )
 }
