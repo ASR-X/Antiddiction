@@ -34,8 +34,7 @@ import * as Linking from 'expo-linking'
 // )
 
 const initialState = {
-  user: {
-  },
+  user: {},
   error: null as any,
 }
 
