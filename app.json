@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "Vmware Dev",
+    "slug": "vmware-dev",
+    "scheme": "vnwaredev",
+    "android": {
+      "package": "com.vmwaredev"
+    }
+  }
+}
