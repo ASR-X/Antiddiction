@@ -35,9 +35,6 @@ import * as Linking from 'expo-linking'
 
 const initialState = {
   user: {
-    email: null as string,
-    fullName: null as string,
-    uid: null as string,
   },
   error: null as any,
 }
