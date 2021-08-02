@@ -6,23 +6,23 @@ import { MainRoutes } from '../Navigators/routes'
 import CardView from '../Components/CardView'
 import { BezierGraph } from '../Components/BezierGraph'
 import { ProgressRings } from '../Components/ProgressRings'
-import { ChonseSelect } from 'react-native-chonse-select';
+import { ChonseSelect } from 'react-native-chonse-select'
 
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'
 const data = [
-	{
-		value:'0',
-		label:'1 M'
-	},
-	{
-		value:'1',
-		label:'3 M'
-	},
   {
-		value:'2',
-		label:'1 ,Y'
-	}
+    value: '0',
+    label: '1 M',
+  },
+  {
+    value: '1',
+    label: '3 M',
+  },
+  {
+    value: '2',
+    label: '1 ,Y',
+  },
 ]
 //Components
 import {
@@ -89,7 +89,6 @@ const Home = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-         
         <Text
           style={{
             fontSize: 18,
@@ -101,12 +100,12 @@ const Home = ({ navigation }): React.ReactElement => {
           Days Clean
         </Text>
         <ChonseSelect
-      	height={25}
-      	style={{ marginLeft: 15, marginBottom: 10 }}
-      	data={data}
-      	initValue={'0'}
-        backgroundColor='#000000'
-      />
+          height={25}
+          style={{ marginLeft: 15, marginBottom: 10 }}
+          data={data}
+          initValue={'0'}
+          backgroundColor="#000000"
+        />
 
         <ProgressRings data={[0.4, 0.6, 0.8]} />
         <Text
@@ -135,10 +134,7 @@ const Home = ({ navigation }): React.ReactElement => {
               },
             ],
           }}
-          
         />
-
-     
       </SafeAreaView>
     </View>
   )

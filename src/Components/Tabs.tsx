@@ -1,5 +1,5 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import 'react-tabs/style/react-tabs.css'
 
 export default () => (
   <Tabs>
@@ -15,4 +15,4 @@ export default () => (
       <h2>Any content 2</h2>
     </TabPanel>
   </Tabs>
-);
+)
