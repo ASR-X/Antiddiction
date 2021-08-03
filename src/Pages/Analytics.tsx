@@ -9,7 +9,7 @@ import { ProgressRings } from '../Components/ProgressRings'
 import CalendarHeatmap from 'react-native-calendar-heatmap'
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
 //Components
 import {
   SafeAreaView,
@@ -111,8 +111,6 @@ const Analytics = ({ navigation }): React.ReactElement => {
           // Set custom calendarWidth.
           calendarWidth={Dimensions.get('window').width}
         />
-                
-                
       </SafeAreaView>
     </View>
   )

@@ -25,7 +25,7 @@
     "react-native-chonse-select": "^1.0.5",
     "react-native-calendar-heatmap": "0.2.4",
     "react-native-calendars": "1.1264.0",
-    "lodash":"4.17.21",
+    "lodash": "4.17.21",
     "react-native-dotenv": "^3.0.0",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~1.10.2",
