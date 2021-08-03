@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { SafeAreaView, Text, View } from 'react-native'
 import { useReduxDispatch } from '../Redux'

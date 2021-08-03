@@ -23,7 +23,7 @@ export enum MainRoutes {
   About = 'About',
   Payment = 'Payment',
   Search = 'Search',
-  QRCode = 'QR Code',
+  QRCode = 'qr code',
 }
 
 export type MainStackParamList = {
