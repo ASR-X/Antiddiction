@@ -254,7 +254,7 @@ import { NPatients } from '../Data/NPatients'
                     color: grey,
                   }}
                 >
-                  Tomorrow
+                  2nd Day
                 </Text>
               </View>
               <View
@@ -280,7 +280,7 @@ import { NPatients } from '../Data/NPatients'
                     color: grey,
                   }}
                 >
-                  Tomorrow
+                  3rd Day
                 </Text>
               </View>
             </View>

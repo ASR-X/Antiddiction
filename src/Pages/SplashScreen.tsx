@@ -58,8 +58,8 @@ const SplashScreen = ({ navigation }): React.ReactElement => {
         />
       </SplashHeaderView>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
-        <SplashTitle>Make Food Price Comparisons Quickly!</SplashTitle>
-        <SplashText>Sign in with your account</SplashText>
+        <SplashTitle>Antiddiction</SplashTitle>
+        <SplashText>Fill out this survey before using the app</SplashText>
         <SplashButtonView>
           <StyledButton
             onPress={() => navigation.navigate(MainRoutes.Question1)}
