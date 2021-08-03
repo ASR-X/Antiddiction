@@ -39,7 +39,13 @@ import { Patients } from '../Data/Patients'
 import { NPatients } from '../Data/NPatients'
 import { MainRoutes } from '../Navigators/routes'
 
-const Item = ({ item, gender, admin, ldose, onPress }): React.ReactElement<any> => {
+const Item = ({
+  item,
+  gender,
+  admin,
+  ldose,
+  onPress,
+}): React.ReactElement<any> => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -108,7 +114,9 @@ const Item = ({ item, gender, admin, ldose, onPress }): React.ReactElement<any> 
           }}
         >
           <Text style={{ fontSize: 15, color: primary }}>Age - {item.age}</Text>
-          <Text style={{ fontSize: 15, color: primary }}>First Age - {item.firstAge}</Text>
+          <Text style={{ fontSize: 15, color: primary }}>
+            First Age - {item.firstAge}
+          </Text>
         </View>
         <View
           style={{
@@ -117,7 +125,8 @@ const Item = ({ item, gender, admin, ldose, onPress }): React.ReactElement<any> 
             flex: 3,
           }}
         >
-          <Text style={{ fontSize: 15, color: primary }}>Gender - {gender}
+          <Text style={{ fontSize: 15, color: primary }}>
+            Gender - {gender}
           </Text>
           <Text style={{ fontSize: 15, color: primary }}>Route - {admin}</Text>
         </View>
@@ -129,7 +138,9 @@ const Item = ({ item, gender, admin, ldose, onPress }): React.ReactElement<any> 
           }}
         >
           <Text style={{ fontSize: 13.5, color: primary }}>Dose - {ldose}</Text>
-          <Text style={{ fontSize: 15, color: primary }}>N. Drugs - {item.drugs.length}</Text>
+          <Text style={{ fontSize: 15, color: primary }}>
+            N. Drugs - {item.drugs.length}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -138,25 +149,18 @@ const Item = ({ item, gender, admin, ldose, onPress }): React.ReactElement<any> 
 
 const Home = ({ route, navigation }): React.ReactElement => {
   const renderItem = ({ item }) => {
-    var gender = ""
-    var admin = ""
-    var dose = ""
-    if (item.gender === '1')
-        gender =  'Male'
-    else if (item.gender === '2')
-        gender = 'Female'
-    else
-        gender = 'N/B'
+    var gender = ''
+    var admin = ''
+    var dose = ''
+    if (item.gender === '1') gender = 'Male'
+    else if (item.gender === '2') gender = 'Female'
+    else gender = 'N/B'
 
-    if (item.admin === '1')
-        admin =  'Oral'
-    else if (item.admin === '2')
-        admin = 'Smoke'
-    else if (item.admin === '3')
-        admin = 'Inhale'
-    else if (item.admin === '4')
-        admin = 'Injection'
-    
+    if (item.admin === '1') admin = 'Oral'
+    else if (item.admin === '2') admin = 'Smoke'
+    else if (item.admin === '3') admin = 'Inhale'
+    else if (item.admin === '4') admin = 'Injection'
+
     var dates = item.dose.map((date) => new Date(date))
     var l_dose = dates.reduce(function (p, v) {
       return p > v ? p : v
@@ -167,9 +171,17 @@ const Home = ({ route, navigation }): React.ReactElement => {
     var s_date = l_dose.toISOString().split('T')[0]
     s_date = s_date.slice(2)
 
-    return <Item item={item} gender={gender} admin={admin} ldose={s_date} onPress={() => {
-      navigation.navigate(MainRoutes.Dashboard, {patient: item})
-    }} />
+    return (
+      <Item
+        item={item}
+        gender={gender}
+        admin={admin}
+        ldose={s_date}
+        onPress={() => {
+          navigation.navigate(MainRoutes.Dashboard, { patient: item })
+        }}
+      />
+    )
   }
 
   console.log(route.params.Home)

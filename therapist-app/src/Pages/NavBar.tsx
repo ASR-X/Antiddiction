@@ -53,7 +53,10 @@ const BotNav = (): React.ReactElement => {
         inactiveTintColor: 'gray',
       }}
     >
-      <Tab.Screen name={MainRoutes.Dashboard} component={DashboardStackScreen} />
+      <Tab.Screen
+        name={MainRoutes.Dashboard}
+        component={DashboardStackScreen}
+      />
     </Tab.Navigator>
   )
 }
