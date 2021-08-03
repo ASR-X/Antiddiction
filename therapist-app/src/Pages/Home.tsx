@@ -38,8 +38,9 @@ import { useReduxDispatch, useReduxSelector } from '../Redux'
 
 const Item = ({ item, onPress }): React.ReactElement<any> => {
   return (
-    <TouchableOpacity onPress={onPress} style={
-      {
+    <TouchableOpacity
+      onPress={onPress}
+      style={{
         margin: 10,
         padding: 10,
         borderWidth: 2,
@@ -48,64 +49,70 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
-      }
-    }>
-      <View style={
-        {
+      }}
+    >
+      <View
+        style={{
           justifyContent: 'center',
           alignItems: 'center',
-        }
-      }>
-      <Text style={
-        {
-          fontSize: 35,
-          color: primary,
-        }
-      }
-      >{item.name}</Text>
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 35,
+            color: primary,
+          }}
+        >
+          {item.name}
+        </Text>
       </View>
-      <View style={
-        {
+      <View
+        style={{
           justifyContent: 'space-between',
           alignItems: 'center',
-          flex: 2
-        }
-      }>
-        <View style={
-        {
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexDirection: 'row',
-          flex: 1,
-        }
-        }>
-          <Text style={{fontSize: 15,color: primary,}}>Age - 16</Text>
-          <Text style={{fontSize: 15,color: primary, marginLeft: 15}}>Age - 16</Text>
+          flex: 2,
+        }}
+      >
+        <View
+          style={{
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexDirection: 'row',
+            flex: 1,
+          }}
+        >
+          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+          <Text style={{ fontSize: 15, color: primary, marginLeft: 15 }}>
+            Age - 16
+          </Text>
         </View>
-        <View style={
-        {
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexDirection: 'row',
-        }
-        }>
-          <Text style={{fontSize: 15,color: primary,}}>Age - 16</Text>
-          <Text style={{fontSize: 15,color: primary,marginLeft: 15}}>Age - 16</Text>
+        <View
+          style={{
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexDirection: 'row',
+          }}
+        >
+          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+          <Text style={{ fontSize: 15, color: primary, marginLeft: 15 }}>
+            Age - 16
+          </Text>
         </View>
       </View>
-      <View style={
-        {
+      <View
+        style={{
           justifyContent: 'center',
           alignItems: 'center',
-        }
-      }>
-      <Text style={
-        {
-          fontSize: 35,
-          color: primary,
-        }
-      }
-      >35%</Text>
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 35,
+            color: primary,
+          }}
+        >
+          35%
+        </Text>
       </View>
     </TouchableOpacity>
   )
@@ -116,27 +123,20 @@ const Home = ({ navigation }): React.ReactElement => {
   const data = [
     {
       name: 'Bob Joe',
-      id: '1'
+      id: '1',
     },
     {
       name: 'John Doe',
-      id: '2'
+      id: '2',
     },
     {
       name: 'Jane Doe',
-      id: '3'
+      id: '3',
     },
   ]
 
   const renderItem = ({ item }) => {
-    return (
-      <Item
-        item={item}
-        onPress={() => {
-          
-        }}
-      />
-    )
+    return <Item item={item} onPress={() => {}} />
   }
 
   return (
@@ -154,7 +154,7 @@ const Home = ({ navigation }): React.ReactElement => {
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-start' }}
-         / >
+        />
       </SafeAreaView>
     </View>
   )
