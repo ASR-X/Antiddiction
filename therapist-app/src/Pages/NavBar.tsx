@@ -17,7 +17,7 @@ import { MainRoutes } from '../Navigators/routes'
 
 //Colors
 import { Colors, ProfilePicture } from '../Components/styles'
-import {Plus} from './Plus'
+import { Plus } from './Plus'
 // import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
@@ -26,9 +26,7 @@ const { primary, white, black } = Colors
 const HomeStack = createStackNavigator()
 
 const NavBar = (): React.ReactElement => {
-  return (
-    <HomeStackScreen />
-  )
+  return <HomeStackScreen />
 }
 
 export default NavBar
@@ -48,7 +46,7 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name={MainRoutes.Home}
         component={Home}
-        options={ ({ navigation }) => ({
+        options={({ navigation }) => ({
           title: 'Patients',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerTitleStyle: {
