@@ -25,20 +25,24 @@ import { useReduxSelector } from '../Redux'
 
 const { primary, white, grey, black } = Colors
 
-export const Question3 = ({ navigation }): React.ReactElement => {
+export const Question6 = ({ navigation }): React.ReactElement => {
     const reduxUser = useReduxSelector(selectUser)
   const answers = [
     {
       id: '1',
-      title: 'Never Married',
+      title: 'Private insurance (Blue Cross/Blue Shield)',
     },
     {
       id: '2',
-      title: 'Currently Married',
+      title: 'Medicaid',
     },
     {
       id: '3',
-      title: 'Divorced or Widowed',
+      title: 'Medicare or Other',
+    },
+    {
+        id: '4',
+        title: 'None',
     },
   ]
 
@@ -47,11 +51,11 @@ export const Question3 = ({ navigation }): React.ReactElement => {
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
       <Animatable.View style={styles.footer} >
-        <QuestionTitle>Marital Status</QuestionTitle>
-        <MultipleChoice props={answers} num={'marital'} />
+        <QuestionTitle>Health Insurance</QuestionTitle>
+        <MultipleChoice props={answers} num={'insurance'} />
         <QuestionNextButton
           onPress={() => {
-            if (reduxUser.marital) navigation.navigate(MainRoutes.Question4)
+            if (reduxUser.insurance) navigation.navigate(MainRoutes.Question7)
           }
         }
         >
@@ -59,7 +63,7 @@ export const Question3 = ({ navigation }): React.ReactElement => {
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
-            navigation.navigate(MainRoutes.Question2)
+            navigation.navigate(MainRoutes.Question5)
           }
         }>
             <MaterialIcons name="navigate-before" color={white} size={45} />

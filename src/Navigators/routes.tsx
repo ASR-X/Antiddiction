@@ -7,6 +7,12 @@ export enum MainRoutes {
   Question1 = 'Question 1',
   Question2 = 'Question 2',
   Question3 = 'Question 3',
+  Question4 = 'Question 4',
+  Question5 = 'Question 5',
+  Question6 = 'Question 6',
+  Question7 = 'Question 7',
+  Question8 = 'Question 8',
+  Question9 = 'Question 9',
   Welcome = 'Welcome',
   Home = 'Home',
   Profile = 'Profile',
@@ -33,6 +39,12 @@ export type MainStackParamList = {
   [MainRoutes.Question1]: undefined
   [MainRoutes.Question2]: undefined
   [MainRoutes.Question3]: undefined
+  [MainRoutes.Question4]: undefined
+  [MainRoutes.Question5]: undefined
+  [MainRoutes.Question6]: undefined
+  [MainRoutes.Question7]: undefined
+  [MainRoutes.Question8]: undefined
+  [MainRoutes.Question9]: undefined
   [MainRoutes.NavBar]: undefined
   [MainRoutes.Sysco]: undefined
   [MainRoutes.UsFoods]: undefined

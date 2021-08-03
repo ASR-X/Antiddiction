@@ -33,7 +33,7 @@ export const Question1 = ({ navigation }): React.ReactElement => {
     <View style={{ flex: 1, backgroundColor: white }}>
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
-      <Animatable.View style={styles.footer} animation="fadeInUpBig">
+      <Animatable.View style={styles.footer}>
         <View style={{ flex: 1 }}>
           <QuestionTitle>Age</QuestionTitle>
           <TextInput
@@ -56,7 +56,7 @@ export const Question1 = ({ navigation }): React.ReactElement => {
         </View>
         <QuestionNextButton
           onPress={() => {
-            if (age && firstAge) {
+            if (age && firstAge && parseInt(firstAge) <= parseInt(age)) {
               dispatch(
                 userSlice.actions.setFactor({ age: age, firstAge: firstAge })
               )
@@ -64,7 +64,7 @@ export const Question1 = ({ navigation }): React.ReactElement => {
             }
           }}
         >
-          <MaterialIcons name="navigate-next" color={primary} size={45} />
+          <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
       </Animatable.View>
     </View>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 50,
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
   },
   textInput: {
     color: white,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     borderBottomColor: white,
     marginTop: 30,
-    width: 43, // Add this to specify bottom border color
+    width: 50, // Add this to specify bottom border color
     borderBottomWidth: 3, // Add this to specify bottom border thickness
   },
 })

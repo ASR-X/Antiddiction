@@ -5,6 +5,7 @@
     "scheme": "vnwaredev",
     "android": {
       "package": "com.vmwaredev"
-    }
+    },
+    "userInterfaceStyle": "automatic"
   }
 }

@@ -539,7 +539,21 @@ export const QuestionNextButton = styled.TouchableOpacity`
   bottom: 15px;
   right: 20px;
   height: 70px;
-  background-color: ${white};
+  background-color: ${primary};
+  border-radius: 100px;
+`
+
+export const QuestionPrevButton = styled.TouchableOpacity`
+  border-width: 1px;
+  border-color: ${primary};
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  height: 70px;
+  background-color: ${primary};
   border-radius: 100px;
 `
 
