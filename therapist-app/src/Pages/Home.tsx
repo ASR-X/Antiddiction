@@ -27,13 +27,10 @@ import {
   Dimensions,
 } from 'react-native'
 
-import {
-  Colors,
-} from '../Components/styles'
+import { Colors } from '../Components/styles'
 
 // Colors
 const { primary, white, grey, black } = Colors
-
 
 import { selectUser, risk } from '../Redux/slices/user'
 import { useReduxDispatch, useReduxSelector } from '../Redux'
