@@ -31,10 +31,12 @@ const { greyLight, white, grey, primary, black } = Colors
 
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
+import userSlice from '../Redux/slices/user'
 
 export const Plus = ({ navigation }): React.ReactElement => {
   const [hasPermission, setHasPermission] = useState(null)
   const [scanned, setScanned] = useState(false)
+  const dispatch = useReduxDispatch()
 
   useEffect(() => {
     ;(async () => {
@@ -45,7 +47,7 @@ export const Plus = ({ navigation }): React.ReactElement => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true)
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`)
+    navigation.navigate(MainRoutes.Home, {Home:true})
   }
 
   if (hasPermission === null) {

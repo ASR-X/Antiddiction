@@ -46,6 +46,7 @@ const HomeStackScreen = () => {
       <HomeStack.Screen
         name={MainRoutes.Home}
         component={Home}
+        initialParams={{ Home: false }}
         options={({ navigation }) => ({
           title: 'Patients',
           headerLeftContainerStyle: { marginLeft: 10 },
