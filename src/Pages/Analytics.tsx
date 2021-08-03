@@ -117,7 +117,6 @@ const Analytics = ({ navigation }): React.ReactElement => {
             ],
           }}
         />
-       
       </SafeAreaView>
     </View>
   )

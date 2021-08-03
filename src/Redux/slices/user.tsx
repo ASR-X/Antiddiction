@@ -18,6 +18,27 @@ const initialState = {
   error: null as any,
 }
 
+export const risk = createAsyncThunk(
+  'user/risk',
+  async (data: any, { rejectWithValue }: any) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+    return fetch('https://asrx.ngrok.io/getProb', requestOptions)
+      .then(async (response) => {
+        const response_ser = await response.json()
+        return response_ser
+      })
+      .catch((error) => {
+        return rejectWithValue(error.message)
+      })
+  }
+)
+
 const userSlice = createSlice({
   name: 'user',
   initialState,
@@ -28,14 +49,15 @@ const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    // builder.addCase(resetPass.fulfilled, (state, { payload }) => {})
-    // builder.addCase(resetPass.rejected, (state, action) => {
-    //   console.log(action.payload)
-    //   if (action.payload) {
-    //     // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
-    //     state.error = action.payload
-    //   }
-    // })
+    builder.addCase(risk.fulfilled, (state, { payload }) => {
+      state.user = { ...state.user, ...payload }
+    })
+    builder.addCase(risk.rejected, (state, action) => {
+      if (action.payload) {
+        // Being that we passed in ValidationErrors to rejectType in `createAsyncThunk`, the payload will be available here.
+        state.error = action.payload
+      }
+    })
   },
 })
 

@@ -68,8 +68,12 @@ const { primary, white, grey, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
+<<<<<<< HEAD
 const DateList = ({ navigation }): React.ReactElement => {
 
+=======
+const Calendar = ({ navigation }): React.ReactElement => {
+>>>>>>> 5dcd4f2f34909f1c0884b6b379bc6b0e7aa626ee
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
@@ -80,7 +84,7 @@ const DateList = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-         <CalendarList
+        <CalendarList
           // Enable horizontal scrolling, default = false
           horizontal={true}
           // Enable paging on horizontal, default = false
@@ -88,7 +92,7 @@ const DateList = ({ navigation }): React.ReactElement => {
           // Set custom calendarWidth.
           calendarWidth={Dimensions.get('window').width}
         />
-         <CalendarList
+        <CalendarList
           // Enable horizontal scrolling, default = false
           horizontal={true}
           // Enable paging on horizontal, default = false

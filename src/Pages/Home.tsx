@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 
 import { MainRoutes } from '../Navigators/routes'
 
@@ -66,8 +66,23 @@ const { primary, white, grey, black } = Colors
 
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
+import { selectUser, risk } from '../Redux/slices/user'
+import { useReduxDispatch, useReduxSelector } from '../Redux'
 
 const Home = ({ navigation }): React.ReactElement => {
+  const reduxUser = useReduxSelector(selectUser)
+  const dispatch = useReduxDispatch()
+
+  const fetchRisk = useCallback(async () => {
+    const resultAction = await dispatch(risk(reduxUser))
+    if (!risk.fulfilled.match(resultAction)) {
+    }
+  }, [reduxUser.timeline])
+
+  useEffect(() => {
+    fetchRisk()
+  }, [fetchRisk])
+
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
@@ -107,7 +122,6 @@ const Home = ({ navigation }): React.ReactElement => {
         >
           Risk Analysis
         </Text>
-       
       </SafeAreaView>
     </View>
   )
