@@ -69,7 +69,6 @@ const { primary, white, grey, black } = Colors
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
 const DateList = ({ navigation }): React.ReactElement => {
-
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
