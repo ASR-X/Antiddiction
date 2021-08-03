@@ -68,12 +68,8 @@ const { primary, white, grey, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
-<<<<<<< HEAD
 const DateList = ({ navigation }): React.ReactElement => {
 
-=======
-const Calendar = ({ navigation }): React.ReactElement => {
->>>>>>> 5dcd4f2f34909f1c0884b6b379bc6b0e7aa626ee
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView

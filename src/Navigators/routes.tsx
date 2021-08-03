@@ -15,7 +15,7 @@ export enum MainRoutes {
   Question9 = 'Question 9',
   Home = 'Home',
   NavBar = 'NavBar',
-  Calendar = 'Calendar',
+  DateList = 'Calendar',
   Analytics = 'Analytics',
   Connect = 'Connect',
   QRCode = 'QRCode',
@@ -35,7 +35,7 @@ export type MainStackParamList = {
   [MainRoutes.Question9]: undefined
   [MainRoutes.NavBar]: undefined
   [MainRoutes.QRCode]: undefined
-  [MainRoutes.Calendar]: undefined
+  [MainRoutes.DateList]: undefined
   [MainRoutes.Analytics]: undefined
   [MainRoutes.Connect]: undefined
 }
