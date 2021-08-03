@@ -30,47 +30,55 @@ export const Question7 = ({ navigation }): React.ReactElement => {
   const answers = [
     {
       id: '1',
-      title: 'Alcohol',
+      title: 'None',
     },
     {
       id: '2',
-      title: 'Cocaine/crack',
+      title: 'Alcohol',
     },
     {
       id: '3',
-      title: 'Marijuana/weed',
+      title: 'Cocaine/crack',
     },
     {
       id: '4',
-      title: 'Heroin',
+      title: 'Marijuana',
     },
     {
       id: '5',
+      title: 'Heroin',
+    },
+    {
+      id: '15',
       title: 'Barbiturates',
     },
     {
-      id: '6',
+      id: '13',
       title: 'Benzodiazepines',
     },
     {
-      id: '7',
+      id: '10',
       title: 'Methamphetamine/speed',
     },
     {
-      id: '8',
+      id: '9',
       title: 'Hallucinogens',
     },
     {
-      id: '9',
+      id: '17',
       title: 'Inhalants',
     },
     {
-      id: '10',
+      id: '6',
       title: 'Non-prescription methadone',
     },
     {
-      id: '11',
-      title: 'Over-the-counter medications',
+      id: '7',
+      title: 'Other opiates and synthetics',
+    },
+    {
+      id: '8',
+      title: 'PCP',
     },
   ]
 

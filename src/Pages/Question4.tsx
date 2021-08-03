@@ -38,7 +38,7 @@ export const Question4 = ({ navigation }): React.ReactElement => {
     },
     {
       id: '3',
-      title: 'High School',
+      title: 'Finished High School',
     },
     {
       id: '4',
