@@ -47,7 +47,7 @@ export const Plus = ({ navigation }): React.ReactElement => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true)
-    navigation.navigate(MainRoutes.Home, {Home:true})
+    navigation.navigate(MainRoutes.Home, { Home: true })
   }
 
   if (hasPermission === null) {
