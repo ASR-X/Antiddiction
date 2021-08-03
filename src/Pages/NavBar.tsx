@@ -29,6 +29,10 @@ const { primary, white, black } = Colors
 
 //Individaul Page Stacks
 const HomeStack = createStackNavigator()
+const CalendarStack = createStackNavigator()
+const AnalyticsStack = createStackNavigator()
+const ConnectStack = createStackNavigator()
+
 
 const NavBar = (): React.ReactElement => {
   const Tab = createBottomTabNavigator()
@@ -57,7 +61,7 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.DateList} component={DateList} />
+      <Tab.Screen name={MainRoutes.DateList} component={CalendarStackScreen} />
       <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
       <Tab.Screen name={MainRoutes.Connect} component={Connect} />
     </Tab.Navigator>
@@ -115,6 +119,57 @@ const HomeStackScreen = ({ navigation }) => {
         }}
       />
     </HomeStack.Navigator>
+  )
+}
+
+const CalendarStackScreen = ({ navigation }) => {
+  return (
+    <CalendarStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: white,
+          shadowColor: white, // iOS
+          elevation: 0, // Android
+        },
+        headerTintColor: black,
+      }}
+    >
+      <CalendarStack.Screen
+        name={MainRoutes.DateList}
+        component={DateList}
+        options={{
+          title: 'Calendars',
+          headerLeftContainerStyle: { marginLeft: 10 },
+          headerTitleStyle: {
+            marginTop: 30,
+            fontWeight: 'bold',
+            color: primary,
+            fontSize: 60,
+          },
+          headerRightContainerStyle: { marginRight: 10 },
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: 40,
+              }}
+            >
+            </View>
+          ),
+        }}
+      />
+
+      <HomeStack.Screen
+        component={QRCode}
+        name={MainRoutes.QRCode}
+        options={{
+          title: 'QR Code',
+          headerBackTitleVisible: false,
+          headerLeftContainerStyle: { marginLeft: 10 },
+        }}
+      />
+    </CalendarStack.Navigator>
   )
 }
 

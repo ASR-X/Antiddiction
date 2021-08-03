@@ -160,7 +160,7 @@ const Home = ({ navigation }): React.ReactElement => {
                 style={{
                   width: 120,
                   height: 50,
-                  backgroundColor: primary,
+                  backgroundColor: '#cf0303',
                   borderRadius: 10,
                   marginLeft: 18,
                   alignItems: 'center',

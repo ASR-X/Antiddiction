@@ -67,6 +67,7 @@ const { primary, white, grey, black } = Colors
 
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
+import { width } from 'styled-system'
 
 const DateList = ({ navigation }): React.ReactElement => {
   return (
@@ -78,23 +79,30 @@ const DateList = ({ navigation }): React.ReactElement => {
           alignContent: 'center',
           marginTop: 10,
         }}
+        
       >
-        <CalendarList
-          // Enable horizontal scrolling, default = false
-          horizontal={true}
-          // Enable paging on horizontal, default = false
-          pagingEnabled={true}
-          // Set custom calendarWidth.
-          calendarWidth={Dimensions.get('window').width}
-        />
-        <CalendarList
-          // Enable horizontal scrolling, default = false
-          horizontal={true}
-          // Enable paging on horizontal, default = false
-          pagingEnabled={true}
-          // Set custom calendarWidth.
-          calendarWidth={Dimensions.get('window').width}
-        />
+      <Calendar
+          width={Dimensions.get('window').width - 80}
+          // Specify style for calendar container element. Default = {}
+          style={{
+            borderWidth: 2,
+            borderRadius: 15,
+            borderColor: 'blue',
+            height: 340,
+            marginTop: 30,
+            marginLeft: 15,
+            marginRight: 15,
+
+            
+          }}
+          // Specify theme properties to override specific styles for calendar parts. Default = {}
+          theme={{
+            textDayFontSize: 14,
+            textMonthFontSize: 14,
+            textDayHeaderFontSize: 14,
+          }}
+        />  
+        
       </SafeAreaView>
     </View>
   )
