@@ -103,16 +103,6 @@ const Analytics = ({ navigation }): React.ReactElement => {
             ],
           }}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: 'bold',
-            padding: 15,
-            alignSelf: 'flex-start',
-          }}
-        >
-          Calendar
-        </Text>
         <CalendarList
           // Enable horizontal scrolling, default = false
           horizontal={true}

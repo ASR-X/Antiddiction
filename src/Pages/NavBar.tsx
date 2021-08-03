@@ -16,6 +16,7 @@ import Support from './Support'
 import About from './About'
 import Payment from './Payment'
 import Search from './Search'
+import QR from './QRCode'
 
 //Tab
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -24,8 +25,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 //Icons
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import Icon from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/Fontawesome'
 
 //Routes
 import { MainRoutes } from './../Navigators/routes'
@@ -60,7 +62,7 @@ const NavBar = (): React.ReactElement => {
           }
 
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />
+          return <FontAwesome name={iconName} size={size} color={color} />
         },
       })}
       tabBarOptions={{
@@ -91,15 +93,15 @@ const HomeStackScreen = ({ navigation }) => {
       }}
     >
       <HomeStack.Screen
-        name={MainRoutes.Home}
-        component={Home}
+        name={MainRoutes.QRCode}
+        component={qrcode}
         options={{
-          title: 'Home',
+          title: 'qrcode',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <QRComp navigation={navigation} />
+              <FontAwesome name={MainRoutes.QRCode} />
             </View>
           ),
         }}
@@ -165,6 +167,15 @@ const HomeStackScreen = ({ navigation }) => {
       <HomeStack.Screen
         component={Search}
         name={MainRoutes.Search}
+        options={{
+          title: 'What do you need?',
+          headerBackTitleVisible: false,
+          headerLeftContainerStyle: { marginLeft: 10 },
+        }}
+      />
+      <HomeStack.Screen
+        component={QR}
+        name={MainRoutes.QRCode}
         options={{
           title: 'What do you need?',
           headerBackTitleVisible: false,
@@ -259,21 +270,24 @@ const UsFoodsStackScreen = ({ navigation }) => {
   )
 }
 
-const QRComp = ({ navigation }) => {
+const ProfilePictureComp = ({ navigation }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(MainRoutes.Search)}
       style={{ marginHorizontal: 20 }}
     >
-      <Ionicons name={'qr-code-outline'} size={30} color={black} />
+      <ProfilePicture
+        source={require('../Assets/mockPFP.jpg')}
+        resizeMode="cover"
+      />
     </TouchableOpacity>
   )
 }
 
-const SearchIcon = ({ navigation }) => {
+const qrcode = ({ navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(MainRoutes.Search)}>
-      <Ionicons name={'search'} size={30} color={black} />
+    <TouchableOpacity onPress={() => navigation.navigate(MainRoutes.QRCode)}>
+      <FontAwesome name={'qrcode'} size={30} color={black} />
     </TouchableOpacity>
   )
 }

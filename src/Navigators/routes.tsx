@@ -26,6 +26,7 @@ export enum MainRoutes {
   About = 'About',
   Payment = 'Payment',
   Search = 'Search',
+  QRCode = 'qr code',
 }
 
 export type MainStackParamList = {
@@ -49,6 +50,7 @@ export type MainStackParamList = {
   [MainRoutes.About]: undefined
   [MainRoutes.Payment]: undefined
   [MainRoutes.Search]: undefined
+  [MainRoutes.QRCode]: undefined
 }
 
 export const MainStack = createStackNavigator<MainStackParamList>()
