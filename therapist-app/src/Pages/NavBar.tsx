@@ -13,10 +13,11 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 //Routes
-import { MainRoutes } from './../Navigators/routes'
+import { MainRoutes } from '../Navigators/routes'
 
 //Colors
 import { Colors, ProfilePicture } from '../Components/styles'
+import Plus from './Plus'
 // import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
@@ -81,29 +82,34 @@ const HomeStackScreen = ({ navigation }) => {
             fontSize: 60,
           },
           headerRightContainerStyle: { marginRight: 10 },
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <PlusIcon navigation={navigation} />
+            </View>
+          ),
         }}
       />
 
-      {/* <HomeStack.Screen
-        component={QRCode}
-        name={MainRoutes.QRCode}
+      <HomeStack.Screen
+        component={Plus}
+        name={MainRoutes.Plus}
         options={{
-          title: 'QR Code',
+          title: 'Plus sign',
           headerBackTitleVisible: false,
           headerLeftContainerStyle: { marginLeft: 10 },
         }}
-      /> */}
+      />
     </HomeStack.Navigator>
   )
 }
 
-// const QRComp = ({ navigation }) => {
-//   return (
-//     <TouchableOpacity
-//       onPress={() => navigation.navigate(MainRoutes.QRCode)}
-//       style={{ marginHorizontal: 20 }}
-//     >
-//       <Ionicons name={'qr-code-outline'} size={30} color={black} />
-//     </TouchableOpacity>
-//   )
-// }
+const PlusIcon = ({ navigation }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => navigation.navigate(MainRoutes.Plus)}
+      style={{ marginHorizontal: 20 }}
+    >
+      <Ionicons name={'add-outline'} size={30} color={black} />
+    </TouchableOpacity>
+  )
+}
