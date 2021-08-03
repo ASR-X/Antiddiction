@@ -34,20 +34,19 @@ const Search = ({ navigation }): React.ReactElement => {
   return (
     <SafeAreaView style={{ backgroundColor: white, flex: 1 }}>
       <Text
-          style={{
-            fontSize: 18,
-            fontWeight: 'bold',
-            padding: 15,
-            alignSelf: 'flex-start',
-          }}
-        >
-          Scan with Companion App
-        </Text>
-        <Image
-          source={require('../Assets/QRcode.png')} 
-          style={{ height: "70px", paddingRight: "10px" }} 
-        />
-      
+        style={{
+          fontSize: 18,
+          fontWeight: 'bold',
+          padding: 15,
+          alignSelf: 'flex-start',
+        }}
+      >
+        Scan with Companion App
+      </Text>
+      <Image
+        source={require('../Assets/QRcode.png')}
+        style={{ height: '70px', paddingRight: '10px' }}
+      />
     </SafeAreaView>
   )
 }
