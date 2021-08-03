@@ -88,11 +88,17 @@ const HomeStackScreen = ({ navigation }) => {
             marginTop: 30,
             fontWeight: 'bold',
             color: primary,
-            fontSize: 60
+            fontSize: 60,
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 40, }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: 40,
+              }}
+            >
               <QRComp navigation={navigation} />
             </View>
           ),

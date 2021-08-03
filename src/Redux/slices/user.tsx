@@ -5,16 +5,16 @@ import * as Linking from 'expo-linking'
 
 const initialState = {
   user: {
-    admin: "1",
-    age: "34",
-    dose: ["2021-07-27","2021-07-29","2021-08-03", "2021-08-01"],
-    drugs: ["10", "9","8","7","6","5","4","3","2","11","12","13"],
-    education: "5",
-    employment: "2",
-    firstAge: "25",
-    gender: "1",
-    insurance: "4",
-    marital: "4",
+    admin: '1',
+    age: '34',
+    dose: ['2021-07-27', '2021-07-29', '2021-08-03', '2021-08-01'],
+    drugs: ['10', '9', '8', '7', '6', '5', '4', '3', '2', '11', '12', '13'],
+    education: '5',
+    employment: '2',
+    firstAge: '25',
+    gender: '1',
+    insurance: '4',
+    marital: '4',
     Home: true,
   },
   // user: {

@@ -28,8 +28,7 @@ const userSlice = createSlice({
       return state
     },
   },
-  extraReducers: (builder) => {
-  },
+  extraReducers: (builder) => {},
 })
 
 export const selectUser = (state: RootState): any => state.user

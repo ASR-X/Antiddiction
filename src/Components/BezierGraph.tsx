@@ -24,7 +24,6 @@ export const BezierGraph = ({ data }): React.ReactElement => {
       yAxisInterval={10}
       verticalLabelRotation={60}
       chartConfig={{
-        
         backgroundColor: '#0000ff',
         backgroundGradientFrom: '#ffffff',
         backgroundGradientTo: '#ffffff',

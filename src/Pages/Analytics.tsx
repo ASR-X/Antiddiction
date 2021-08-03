@@ -79,18 +79,16 @@ const Analytics = ({ navigation }): React.ReactElement => {
         >
           Risk Analysis
         </Text>
-          <BezierGraph
-            data={{
-              labels: reduxUser.timestamps,
-              datasets: [
-                {
-                  data: reduxUser.probs,
-                },
-              ],
-            }}
-            />
-
-
+        <BezierGraph
+          data={{
+            labels: reduxUser.timestamps,
+            datasets: [
+              {
+                data: reduxUser.probs,
+              },
+            ],
+          }}
+        />
       </SafeAreaView>
     </View>
   )

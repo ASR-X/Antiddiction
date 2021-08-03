@@ -28,7 +28,7 @@ export const ProgressRings = ({ data }): React.ReactElement => {
         decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
         style: {
-          borderRadius: 16
+          borderRadius: 16,
         },
       }}
       style={{

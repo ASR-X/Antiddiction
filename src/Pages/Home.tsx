@@ -84,8 +84,7 @@ const Home = ({ navigation }): React.ReactElement => {
     const resultAction = await dispatch(risk(reduxUser))
     if (risk.fulfilled.match(resultAction)) {
       console.log(reduxUser)
-    }
-    else {
+    } else {
       console.log(resultAction)
     }
   }, [reduxUser.age])
@@ -104,7 +103,18 @@ const Home = ({ navigation }): React.ReactElement => {
           marginTop: 30,
         }}
       >
-        <View style={{ borderWidth:2, borderColor: primary, marginTop: 20, marginBottom: 15, marginHorizontal: 12, borderRadius: 15, alignItems: 'center', justifyContent: 'center' }}>
+        <View
+          style={{
+            borderWidth: 2,
+            borderColor: primary,
+            marginTop: 20,
+            marginBottom: 15,
+            marginHorizontal: 12,
+            borderRadius: 15,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           <Text
             style={{
               fontSize: 25,
@@ -115,66 +125,80 @@ const Home = ({ navigation }): React.ReactElement => {
           >
             Clean
           </Text>
-          <View style={{marginRight: 50}}>
-          <ProgressRings data={[0.4, 0.6, 0.8]}/>
+          <View style={{ marginRight: 50 }}>
+            <ProgressRings data={[0.4, 0.6, 0.8]} />
           </View>
-          <View style={{flexDirection: 'row', alignItems: 'center',justifyContent: 'center', width:'100%'}}>
-            <View style={{flex:2.4}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+            }}
+          >
+            <View style={{ flex: 2.4 }}>
               <ChonseSelect
                 height={25}
-                style={{ marginBottom: 15, alignSelf: 'flex-end'}}
+                style={{ marginBottom: 15, alignSelf: 'flex-end' }}
                 data={data}
                 initValue={chonseActive}
-                color = {primary}
-                onPress={(item)=>{setChonseActive(item.value)}}
+                color={primary}
+                onPress={(item) => {
+                  setChonseActive(item.value)
+                }}
               />
             </View>
-            <View style={{alignItems: 'center', justifyContent: 'center',marginBottom: 15, flex:2}}>
-            <TouchableOpacity style={{width:120, height:50, backgroundColor: primary, borderRadius: 10 , marginLeft: 18, alignItems: 'center', justifyContent: 'center'}}
-            onPress={() => navigation.navigate(MainRoutes.Question1)}
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: 15,
+                flex: 2,
+              }}
             >
-              <Text style={{fontSize: 21, color: white}}>Dosed</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  width: 120,
+                  height: 50,
+                  backgroundColor: primary,
+                  borderRadius: 10,
+                  marginLeft: 18,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                onPress={() => navigation.navigate(MainRoutes.Question1)}
+              >
+                <Text style={{ fontSize: 21, color: white }}>Dosed</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
-        <View style={{ borderWidth:2, borderColor: white, marginBottom: 15, marginHorizontal: 12, borderRadius: 15, alignItems: 'center', justifyContent: 'center', backgroundColor: primary, 
-        flex: 2}}>
-        <Text
+        <View
           style={{
-            fontSize: 25,
-            fontWeight: '200',
-            color: white,
+            borderWidth: 2,
+            borderColor: white,
+            marginBottom: 15,
+            marginHorizontal: 12,
+            borderRadius: 15,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: primary,
+            flex: 2,
           }}
         >
-          Risk
-        </Text>
-        <View style={{alignItems: 'center', justifyContent: 'flex-start'}}>
-        <Text
-          style={{
-            fontSize: 70,
-            fontWeight: '200',
-            color: white,
-          }}
-        >
-          50%
-        </Text>
-        <Text
-          style={{
-            fontSize: 17,
-            fontWeight: '200',
-            color: grey,
-            marginTop: -7
-          }}
-        >
-          Today
-        </Text>
-        </View>
-        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width:'100%', marginTop: 14}}>
-          <View style={{flex:3, alignItems: 'center', justifyContent: 'center',}}>
-              <Text
+          <Text
+            style={{
+              fontSize: 25,
+              fontWeight: '200',
+              color: white,
+            }}
+          >
+            Risk
+          </Text>
+          <View style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
+            <Text
               style={{
-                fontSize: 25,
+                fontSize: 70,
                 fontWeight: '200',
                 color: white,
               }}
@@ -183,54 +207,102 @@ const Home = ({ navigation }): React.ReactElement => {
             </Text>
             <Text
               style={{
-                fontSize: 15,
+                fontSize: 17,
                 fontWeight: '200',
                 color: grey,
+                marginTop: -7,
               }}
             >
-              Tomorrow
+              Today
             </Text>
           </View>
-          <View style={{flex:3, alignItems: 'center', justifyContent: 'center',}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              marginTop: 14,
+            }}
+          >
+            <View
+              style={{
+                flex: 3,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
               <Text
-              style={{
-                fontSize: 25,
-                fontWeight: '200',
-                color: white,
-              }}
-            >
-              50%
-            </Text>
-            <Text
-              style={{
-                fontSize: 15,
-                fontWeight: '200',
-                color: grey,
-              }}
-            >
-              Tomorrow
-            </Text>
-          </View>
-          <View style={{flex:3, alignItems: 'center', justifyContent: 'center',}}>
+                style={{
+                  fontSize: 25,
+                  fontWeight: '200',
+                  color: white,
+                }}
+              >
+                50%
+              </Text>
               <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '200',
+                  color: grey,
+                }}
+              >
+                Tomorrow
+              </Text>
+            </View>
+            <View
               style={{
-                fontSize: 25,
-                fontWeight: '200',
-                color: white,
+                flex: 3,
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              50%
-            </Text>
-            <Text
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontWeight: '200',
+                  color: white,
+                }}
+              >
+                50%
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '200',
+                  color: grey,
+                }}
+              >
+                Tomorrow
+              </Text>
+            </View>
+            <View
               style={{
-                fontSize: 15,
-                fontWeight: '200',
-                color: grey,
+                flex: 3,
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              Tomorrow
-            </Text>
-          </View>
+              <Text
+                style={{
+                  fontSize: 25,
+                  fontWeight: '200',
+                  color: white,
+                }}
+              >
+                50%
+              </Text>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '200',
+                  color: grey,
+                }}
+              >
+                Tomorrow
+              </Text>
+            </View>
           </View>
         </View>
       </SafeAreaView>

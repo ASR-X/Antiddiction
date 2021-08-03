@@ -37,7 +37,7 @@ import { useReduxDispatch, useReduxSelector } from '../Redux'
 
 const Home = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-  
+
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
