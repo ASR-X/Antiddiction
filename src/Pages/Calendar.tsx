@@ -138,7 +138,6 @@ const Calendar = ({ navigation }): React.ReactElement => {
       </SafeAreaView>
     </View>
   )
-
 }
 
 export default Calendar

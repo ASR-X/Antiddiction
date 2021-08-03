@@ -138,7 +138,6 @@ const Connect = ({ navigation }): React.ReactElement => {
       </SafeAreaView>
     </View>
   )
-
 }
 
 export default Connect
