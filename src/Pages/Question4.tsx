@@ -26,7 +26,7 @@ import { useReduxSelector } from '../Redux'
 const { primary, white, grey, black } = Colors
 
 export const Question4 = ({ navigation }): React.ReactElement => {
-    const reduxUser = useReduxSelector(selectUser)
+  const reduxUser = useReduxSelector(selectUser)
   const answers = [
     {
       id: '1',
@@ -41,12 +41,12 @@ export const Question4 = ({ navigation }): React.ReactElement => {
       title: 'High School',
     },
     {
-        id: '4',
-        title: 'Some College',
+      id: '4',
+      title: 'Some College',
     },
     {
-        id: '5',
-        title: 'College & Beyond',
+      id: '5',
+      title: 'College & Beyond',
     },
   ]
 
@@ -54,23 +54,22 @@ export const Question4 = ({ navigation }): React.ReactElement => {
     <View style={{ flex: 1, backgroundColor: white }}>
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
-      <Animatable.View style={styles.footer} >
+      <Animatable.View style={styles.footer}>
         <QuestionTitle>Education (Highest)</QuestionTitle>
         <MultipleChoice props={answers} num={'education'} />
         <QuestionNextButton
           onPress={() => {
             if (reduxUser.education) navigation.navigate(MainRoutes.Question5)
-          }
-        }
+          }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
             navigation.navigate(MainRoutes.Question3)
-          }
-        }>
-            <MaterialIcons name="navigate-before" color={white} size={45} />
+          }}
+        >
+          <MaterialIcons name="navigate-before" color={white} size={45} />
         </QuestionPrevButton>
       </Animatable.View>
     </View>

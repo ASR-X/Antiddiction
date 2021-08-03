@@ -18,7 +18,7 @@ const Item = ({ item, selected, onPress }): React.ReactElement<any> => {
       ) : (
         <MaterialIcons name="check-box-outline-blank" color={white} size={18} />
       )}
-      <QuestionText style={{fontSize: 18}}>{item.title}</QuestionText>
+      <QuestionText style={{ fontSize: 18 }}>{item.title}</QuestionText>
     </TouchableOpacity>
   )
 }
@@ -34,13 +34,19 @@ export const BoxChoice = ({ props, num }): React.ReactElement<any> => {
         item={item}
         selected={selected}
         onPress={() => {
-            if(selectedId.includes(item.id)) {
-                dispatch(userSlice.actions.setFactor({ [num]: selectedId.filter(id => id !== item.id) }))
-              setSelectedId(selectedId.filter(id => id !== item.id))
-            } else {
-                dispatch(userSlice.actions.setFactor({ [num]: selectedId.concat(item.id) }))
-              setSelectedId(selectedId.concat(item.id))
-            }
+          if (selectedId.includes(item.id)) {
+            dispatch(
+              userSlice.actions.setFactor({
+                [num]: selectedId.filter((id) => id !== item.id),
+              })
+            )
+            setSelectedId(selectedId.filter((id) => id !== item.id))
+          } else {
+            dispatch(
+              userSlice.actions.setFactor({ [num]: selectedId.concat(item.id) })
+            )
+            setSelectedId(selectedId.concat(item.id))
+          }
         }}
       />
     )
@@ -52,7 +58,7 @@ export const BoxChoice = ({ props, num }): React.ReactElement<any> => {
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       extraData={selectedId}
-      contentContainerStyle={{ flexGrow: 1, justifyContent: 'center',}}
+      contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
     />
   )
 }

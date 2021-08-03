@@ -26,7 +26,7 @@ import { useReduxSelector } from '../Redux'
 const { primary, white, grey, black } = Colors
 
 export const Question2 = ({ navigation }): React.ReactElement => {
-const reduxUser = useReduxSelector(selectUser)
+  const reduxUser = useReduxSelector(selectUser)
 
   const answers = [
     {
@@ -47,22 +47,22 @@ const reduxUser = useReduxSelector(selectUser)
     <View style={{ flex: 1, backgroundColor: white }}>
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
-      <Animatable.View style={styles.footer} >
+      <Animatable.View style={styles.footer}>
         <QuestionTitle>Gender</QuestionTitle>
         <MultipleChoice props={answers} num={'gender'} />
         <QuestionNextButton
           onPress={() => {
             if (reduxUser.gender) navigation.navigate(MainRoutes.Question3)
-          }
-        }
+          }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
-             navigation.navigate(MainRoutes.Question1)}
-        }>
-            <MaterialIcons name="navigate-before" color={white} size={45} />
+            navigation.navigate(MainRoutes.Question1)
+          }}
+        >
+          <MaterialIcons name="navigate-before" color={white} size={45} />
         </QuestionPrevButton>
       </Animatable.View>
     </View>

@@ -26,7 +26,7 @@ import { MultipleChoice } from '../Components/MultipleChoice'
 const { primary, white, grey, black } = Colors
 
 export const Question8 = ({ navigation }): React.ReactElement => {
-    const reduxUser = useReduxSelector(selectUser)
+  const reduxUser = useReduxSelector(selectUser)
   const answers = [
     {
       id: '1',
@@ -41,8 +41,8 @@ export const Question8 = ({ navigation }): React.ReactElement => {
       title: 'Inhalation',
     },
     {
-        id: '4',
-        title: 'Injection',
+      id: '4',
+      title: 'Injection',
     },
   ]
 
@@ -50,23 +50,22 @@ export const Question8 = ({ navigation }): React.ReactElement => {
     <View style={{ flex: 1, backgroundColor: white }}>
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
-      <Animatable.View style={styles.footer} >
+      <Animatable.View style={styles.footer}>
         <QuestionTitle>Primary Administration Route</QuestionTitle>
         <MultipleChoice props={answers} num={'admin'} />
         <QuestionNextButton
           onPress={() => {
             if (reduxUser.admin) navigation.navigate(MainRoutes.Question9)
-          }
-        }
+          }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
             navigation.navigate(MainRoutes.Question7)
-          }
-        }>
-            <MaterialIcons name="navigate-before" color={white} size={45} />
+          }}
+        >
+          <MaterialIcons name="navigate-before" color={white} size={45} />
         </QuestionPrevButton>
       </Animatable.View>
     </View>
