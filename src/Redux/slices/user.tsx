@@ -36,7 +36,7 @@ const initialState = {
 export const risk = createAsyncThunk(
   'user/risk',
   async (data: any, { rejectWithValue }: any) => {
-    let {Home, ...newdata} = data;
+    let { Home, ...newdata } = data
     const requestOptions = {
       method: 'POST',
       headers: {
