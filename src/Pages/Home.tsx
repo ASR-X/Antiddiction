@@ -75,9 +75,10 @@ const Home = ({ navigation }): React.ReactElement => {
 
   const fetchRisk = useCallback(async () => {
     const resultAction = await dispatch(risk(reduxUser))
-    if (!risk.fulfilled.match(resultAction)) {
+    if (risk.fulfilled.match(resultAction)) {
+      console.log(reduxUser)
     }
-  }, [reduxUser.timeline])
+  }, [reduxUser.age])
 
   useEffect(() => {
     fetchRisk()

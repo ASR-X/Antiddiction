@@ -53,32 +53,11 @@ const { primary, white, grey, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 import { maxWidth } from 'styled-system'
+import { selectUser } from '../Redux/slices/user'
+import { useReduxSelector } from '../Redux'
 
 const Analytics = ({ navigation }): React.ReactElement => {
-  const [postId, setPostId] = useState(null)
-  useEffect(() => {
-    // POST request using fetch inside useEffect React hook
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: 'React Hooks POST Request Example' }),
-    }
-    fetch('https://asrx.ngrok.io/getProb', requestOptions)
-      .then((response) => response.json())
-      .then((data) => setPostId(data.id))
-
-    // empty dependency array means this effect will only run once (like componentDidMount in classes)
-  }, [])
-  const renderItem = ({ item }) => {
-    return (
-      <CardView
-        itemData={item}
-        onPress={() =>
-          navigation.navigate(MainRoutes.CardItemDetails, { itemData: item })
-        }
-      />
-    )
-  }
+  const reduxUser = useReduxSelector(selectUser)
 
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
@@ -102,17 +81,10 @@ const Analytics = ({ navigation }): React.ReactElement => {
         </Text>
         <BezierGraph
           data={{
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            labels: reduxUser.timestamps,
             datasets: [
               {
-                data: [
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                ],
+                data: reduxUser.probs,
               },
             ],
           }}

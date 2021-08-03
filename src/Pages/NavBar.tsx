@@ -20,7 +20,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { MainRoutes } from './../Navigators/routes'
 
 //Colors
-import { Colors, ProfilePicture } from '../Components/styles'
+import { Colors, ProfilePicture, QuestionText } from '../Components/styles'
 import { DrawerActions, NavigationContainer } from '@react-navigation/native'
 import QRCode from './QRCode'
 // import QRCode from './QRCode'
@@ -47,9 +47,6 @@ const NavBar = (): React.ReactElement => {
             iconName = focused ? 'people' : 'people-outline'
           }
 
-          const ProfileStack = createStackNavigator()
-          const UsFoodsStack = createStackNavigator()
-          const Tab = createBottomTabNavigator()
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />
         },
@@ -86,7 +83,13 @@ const HomeStackScreen = ({ navigation }) => {
         component={Home}
         options={{
           title: 'Home',
-          headerLeftContainerStyle: { marginLeft: 10 },
+          headerLeftContainerStyle: { marginLeft: 10},
+          headerTitleStyle: {
+            marginTop: 10,
+            fontWeight: 'bold',
+            color: primary,
+            fontSize: 45
+          },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
