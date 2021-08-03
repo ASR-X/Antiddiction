@@ -83,7 +83,7 @@ const HomeStackScreen = ({ navigation }) => {
         component={Home}
         options={{
           title: 'Home',
-          headerLeftContainerStyle: { marginLeft: 10},
+          headerLeftContainerStyle: { marginLeft: 10 },
           headerTitleStyle: {
             marginTop: 30,
             fontWeight: 'bold',
