@@ -27,7 +27,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Icon from 'react-native-vector-icons/Fontawesome'
+import Icon from 'react-native-vector-icons'
 
 //Routes
 import { MainRoutes } from './../Navigators/routes'
