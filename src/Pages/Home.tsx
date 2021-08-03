@@ -8,8 +8,6 @@ import { BezierGraph } from '../Components/BezierGraph'
 import { ProgressRings } from '../Components/ProgressRings'
 import ChonseSelect from '../Components/ChonseSelect'
 
-//Data
-import RecentlyViewed from '../Data/RecentlyViewed'
 const data = [
   {
     value: '0',
