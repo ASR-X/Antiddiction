@@ -20,8 +20,11 @@ export const BezierGraph = ({ data }): React.ReactElement => {
     <LineChart
       data={data}
       width={Dimensions.get('window').width} // from react-native
-      height={220}
+      height={400}
+      yAxisInterval={10}
+      verticalLabelRotation={60}
       chartConfig={{
+        
         backgroundColor: '#0000ff',
         backgroundGradientFrom: '#ffffff',
         backgroundGradientTo: '#ffffff',
@@ -34,7 +37,6 @@ export const BezierGraph = ({ data }): React.ReactElement => {
       bezier
       style={{
         marginVertical: 8,
-        borderRadius: 1,
       }}
     />
   )

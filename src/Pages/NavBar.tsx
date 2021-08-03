@@ -85,14 +85,14 @@ const HomeStackScreen = ({ navigation }) => {
           title: 'Home',
           headerLeftContainerStyle: { marginLeft: 10},
           headerTitleStyle: {
-            marginTop: 10,
+            marginTop: 30,
             fontWeight: 'bold',
             color: primary,
-            fontSize: 45
+            fontSize: 60
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 40, }}>
               <QRComp navigation={navigation} />
             </View>
           ),
