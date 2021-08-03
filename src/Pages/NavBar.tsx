@@ -262,7 +262,7 @@ const UsFoodsStackScreen = ({ navigation }) => {
 const QRComp = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(MainRoutes.Profile)}
+      onPress={() => navigation.navigate(MainRoutes.Search)}
       style={{ marginHorizontal: 20 }}
     >
       <Ionicons name={'qr-code-outline'} size={30} color={black} />
