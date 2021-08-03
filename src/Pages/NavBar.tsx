@@ -3,8 +3,10 @@ import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 
 //Screens
 import Home from './Home'
-import Sysco from './Sysco'
-import Profile from './Profile'
+import Calendar from './Calendar'
+import Analytics from './Analytics'
+
+import Connect from './Connect'
 import UsFood from './UsFood'
 import EditProfile from './EditProfile'
 import CardListScreen from './CardListScreen'
@@ -49,12 +51,12 @@ const NavBar = (): React.ReactElement => {
           let iconName
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline'
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline'
-          } else if (route.name === 'Therapy') {
-            iconName = focused ? 'heart' : 'heart-outline'
-          } else if (route.name === 'Survey') {
-            iconName = focused ? 'checkbox' : 'checkbox-outline'
+          } else if (route.name === 'Analytics') {
+            iconName = focused ? 'podium' : 'podium-outline'
+          } else if (route.name === 'Calendar') {
+            iconName = focused ? 'calendar' : 'calendar-outline'
+          } else if (route.name === 'Connect') {
+            iconName = focused ? 'people' : 'people-outline'
           }
 
           // You can return any component that you like here!
@@ -67,9 +69,9 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.Therapy} component={Sysco} />
-      <Tab.Screen name={MainRoutes.Survey} component={UsFoodsStackScreen} />
-      <Tab.Screen name={MainRoutes.Profile} component={ProfileStackScreen} />
+      <Tab.Screen name={MainRoutes.Calendar} component={Calendar} />
+      <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
+      <Tab.Screen name={MainRoutes.Connect} component={Connect} />
     </Tab.Navigator>
   )
 }

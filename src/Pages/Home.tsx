@@ -21,7 +21,7 @@ const data = [
   },
   {
     value: '2',
-    label: '1 ,Y',
+    label: '1 Y',
   },
 ]
 //Components
