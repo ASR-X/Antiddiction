@@ -79,9 +79,8 @@ const DateList = ({ navigation }): React.ReactElement => {
           alignContent: 'center',
           marginTop: 10,
         }}
-        
       >
-      <Calendar
+        <Calendar
           width={Dimensions.get('window').width - 80}
           // Specify style for calendar container element. Default = {}
           style={{
@@ -92,8 +91,6 @@ const DateList = ({ navigation }): React.ReactElement => {
             marginTop: 30,
             marginLeft: 15,
             marginRight: 15,
-
-            
           }}
           // Specify theme properties to override specific styles for calendar parts. Default = {}
           theme={{
@@ -101,8 +98,7 @@ const DateList = ({ navigation }): React.ReactElement => {
             textMonthFontSize: 14,
             textDayHeaderFontSize: 14,
           }}
-        />  
-        
+        />
       </SafeAreaView>
     </View>
   )

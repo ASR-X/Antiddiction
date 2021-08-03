@@ -33,7 +33,6 @@ const CalendarStack = createStackNavigator()
 const AnalyticsStack = createStackNavigator()
 const ConnectStack = createStackNavigator()
 
-
 const NavBar = (): React.ReactElement => {
   const Tab = createBottomTabNavigator()
   return (
@@ -154,8 +153,7 @@ const CalendarStackScreen = ({ navigation }) => {
                 alignItems: 'center',
                 marginTop: 40,
               }}
-            >
-            </View>
+            ></View>
           ),
         }}
       />
