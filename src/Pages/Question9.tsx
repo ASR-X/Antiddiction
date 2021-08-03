@@ -27,11 +27,11 @@ import { CalendarChoice } from '../Components/CalendarChoice'
 const { primary, white, grey, black } = Colors
 
 export const Question9 = ({ navigation }): React.ReactElement => {
-    const reduxUser = useReduxSelector(selectUser)
+  const reduxUser = useReduxSelector(selectUser)
   const answers = [
     {
       id: 1,
-    }
+    },
   ]
 
   const dispatch = useReduxDispatch()
@@ -40,26 +40,24 @@ export const Question9 = ({ navigation }): React.ReactElement => {
     <View style={{ flex: 1, backgroundColor: white }}>
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
-      <Animatable.View style={styles.footer} >
+      <Animatable.View style={styles.footer}>
         <QuestionTitle>Dose History</QuestionTitle>
         <CalendarChoice props={answers} num={'dose'} />
         <QuestionNextButton
           onPress={() => {
             console.log(reduxUser)
-            if (reduxUser.dose.length > 0) dispatch(
-                userSlice.actions.setFactor({ Home: true })
-              )
-          }
-        }
+            if (reduxUser.dose.length > 0)
+              dispatch(userSlice.actions.setFactor({ Home: true }))
+          }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
             navigation.navigate(MainRoutes.Question8)
-          }
-        }>
-            <MaterialIcons name="navigate-before" color={white} size={45} />
+          }}
+        >
+          <MaterialIcons name="navigate-before" color={white} size={45} />
         </QuestionPrevButton>
       </Animatable.View>
     </View>
@@ -74,6 +72,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     paddingTop: 52,
     paddingHorizontal: 20,
-    paddingBottom: 100
+    paddingBottom: 100,
   },
 })

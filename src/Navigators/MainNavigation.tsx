@@ -61,12 +61,11 @@ const SurveyNavigator = (): React.ReactElement => {
         headerTitle: '',
         headerLeft: () => null,
         cardOverlay: () => (
-            <>
-               <QuestionHeaderView />
-                <View style={styles.footer} />
-            </>
-         
-        )
+          <>
+            <QuestionHeaderView />
+            <View style={styles.footer} />
+          </>
+        ),
       }}
       initialRouteName={MainRoutes.SplashScreen}
     >
@@ -74,10 +73,8 @@ const SurveyNavigator = (): React.ReactElement => {
         name={MainRoutes.SplashScreen}
         component={SplashScreen}
       />
-      <MainStack.Screen name={MainRoutes.Question1} component={Question1} 
-      />
-      <MainStack.Screen name={MainRoutes.Question2} component={Question2} 
-      />
+      <MainStack.Screen name={MainRoutes.Question1} component={Question1} />
+      <MainStack.Screen name={MainRoutes.Question2} component={Question2} />
       <MainStack.Screen name={MainRoutes.Question3} component={Question3} />
       <MainStack.Screen name={MainRoutes.Question4} component={Question4} />
       <MainStack.Screen name={MainRoutes.Question5} component={Question5} />
@@ -118,6 +115,5 @@ const styles = StyleSheet.create({
     borderBottomWidth: 3, // Add this to specify bottom border thickness
   },
 })
-
 
 export default MainNavigation
