@@ -30,7 +30,7 @@ const { primary, white, black } = Colors
 //Individaul Page Stacks
 const HomeStack = createStackNavigator()
 const CalendarStack = createStackNavigator()
-const AnalyticsStack = createStackNavigator()
+const GraphStack = createStackNavigator()
 const ConnectStack = createStackNavigator()
 
 const NavBar = (): React.ReactElement => {
@@ -170,7 +170,45 @@ const CalendarStackScreen = ({ navigation }) => {
     </CalendarStack.Navigator>
   )
 }
-
+const GraphsStackScreen = ({ navigation }) => {
+  return (
+    <GraphStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: white,
+          shadowColor: white, // iOS
+          elevation: 0, // Android
+        },
+        headerTintColor: black,
+      }}
+    >
+      <GraphStack.Screen
+        name={MainRoutes.Analytics}
+        component={Analytics}
+        options={{
+          title: 'Analytics',
+          headerLeftContainerStyle: { marginLeft: 10 },
+          headerTitleStyle: {
+            marginTop: 30,
+            fontWeight: 'bold',
+            color: primary,
+            fontSize: 60,
+          },
+          headerRightContainerStyle: { marginRight: 10 },
+          headerRight: () => (
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: 40,
+              }}
+            ></View>
+          ),
+        }}
+      />
+    </GraphStack.Navigator>
+  )
+}
 const QRComp = ({ navigation }) => {
   return (
     <TouchableOpacity
