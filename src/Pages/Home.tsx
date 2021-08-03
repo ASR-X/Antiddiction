@@ -107,7 +107,6 @@ const Home = ({ navigation }): React.ReactElement => {
         >
           Risk Analysis
         </Text>
-       
       </SafeAreaView>
     </View>
   )

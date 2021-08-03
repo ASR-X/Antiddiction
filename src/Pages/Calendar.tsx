@@ -69,7 +69,6 @@ const { primary, white, grey, black } = Colors
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
 const Calendar = ({ navigation }): React.ReactElement => {
-
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
@@ -80,7 +79,7 @@ const Calendar = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-         <CalendarList
+        <CalendarList
           // Enable horizontal scrolling, default = false
           horizontal={true}
           // Enable paging on horizontal, default = false
@@ -88,7 +87,7 @@ const Calendar = ({ navigation }): React.ReactElement => {
           // Set custom calendarWidth.
           calendarWidth={Dimensions.get('window').width}
         />
-         <CalendarList
+        <CalendarList
           // Enable horizontal scrolling, default = false
           horizontal={true}
           // Enable paging on horizontal, default = false
