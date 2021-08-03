@@ -33,7 +33,22 @@ const Search = ({ navigation }): React.ReactElement => {
   const dispatch = useReduxDispatch()
   return (
     <SafeAreaView style={{ backgroundColor: white, flex: 1 }}>
-      <Text>Search Screen</Text>
+      <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+            alignSelf: 'flex-start',
+          }}
+        >
+          Scan with Companion App
+        </Text>
+        {/* <Image
+          src={require('../Assets/QRcode.png')} 
+          style={{ height: "70px", paddingRight: "10px" }} 
+        />  */}
+      
+        
     </SafeAreaView>
   )
 }
