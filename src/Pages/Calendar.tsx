@@ -7,6 +7,7 @@ import CardView from '../Components/CardView'
 import { BezierGraph } from '../Components/BezierGraph'
 import { ProgressRings } from '../Components/ProgressRings'
 import { ChonseSelect } from 'react-native-chonse-select'
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
 
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'
@@ -68,17 +69,6 @@ const { primary, white, grey, black } = Colors
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
 const Calendar = ({ navigation }): React.ReactElement => {
-  const renderItem = ({ item }) => {
-    return (
-      <CardView
-        itemData={item}
-        onPress={() =>
-          navigation.navigate(MainRoutes.CardItemDetails, { itemData: item })
-        }
-      />
-    )
-  }
-
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
@@ -89,51 +79,21 @@ const Calendar = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: 'bold',
-            padding: 15,
-            alignSelf: 'flex-start',
-          }}
-        >
-          Days Clean
-        </Text>
-        <ChonseSelect
-          height={25}
-          style={{ marginLeft: 15, marginBottom: 10 }}
-          data={data}
-          initValue={'0'}
-          backgroundColor="#000000"
+        <CalendarList
+          // Enable horizontal scrolling, default = false
+          horizontal={true}
+          // Enable paging on horizontal, default = false
+          pagingEnabled={true}
+          // Set custom calendarWidth.
+          calendarWidth={Dimensions.get('window').width}
         />
-
-        <ProgressRings data={[0.4, 0.6, 0.8]} />
-        <Text
-          style={{
-            fontSize: 18,
-            fontWeight: 'bold',
-            padding: 15,
-            alignSelf: 'flex-start',
-          }}
-        >
-          Risk Analysis
-        </Text>
-        <BezierGraph
-          data={{
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-            datasets: [
-              {
-                data: [
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                  Math.random() * 100,
-                ],
-              },
-            ],
-          }}
+        <CalendarList
+          // Enable horizontal scrolling, default = false
+          horizontal={true}
+          // Enable paging on horizontal, default = false
+          pagingEnabled={true}
+          // Set custom calendarWidth.
+          calendarWidth={Dimensions.get('window').width}
         />
       </SafeAreaView>
     </View>
