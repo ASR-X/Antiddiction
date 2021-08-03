@@ -13,7 +13,7 @@ export const Patients = [
     insurance: '4',
     marital: '4',
     Home: true,
-    prob: '12.4%'
+    prob: '12.4%',
   },
   {
     name: 'John Doe',
@@ -29,7 +29,7 @@ export const Patients = [
     insurance: '2',
     marital: '2',
     Home: true,
-    prob: '5.2%'
+    prob: '5.2%',
   },
   {
     name: 'Jane Doe',
@@ -45,6 +45,6 @@ export const Patients = [
     insurance: '2',
     marital: '2',
     Home: true,
-    prob: '10.7%'
+    prob: '10.7%',
   },
 ]
