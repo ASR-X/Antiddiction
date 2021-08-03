@@ -15,16 +15,14 @@ import {
   Image,
   Dimensions,
 } from 'react-native'
-export const BezierGraph = ({ data }): React.ReactElement => {
+export const ProgressRings = ({ data }): React.ReactElement => {
   return (
-    <LineChart
+    <ProgressChart
       data={data}
       width={Dimensions.get('window').width} // from react-native
-      height={400}
-      yAxisInterval={10}
-      verticalLabelRotation={60}
+      height={220}
       chartConfig={{
-        backgroundColor: '#0000ff',
+        backgroundColor: '#ffffff',
         backgroundGradientFrom: '#ffffff',
         backgroundGradientTo: '#ffffff',
         decimalPlaces: 2, // optional, defaults to 2dp
@@ -33,9 +31,9 @@ export const BezierGraph = ({ data }): React.ReactElement => {
           borderRadius: 16,
         },
       }}
-      bezier
       style={{
         marginVertical: 8,
+        borderRadius: 1,
       }}
     />
   )

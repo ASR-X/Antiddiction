@@ -28,24 +28,27 @@ const { greyLight, white, grey, primary, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
-// const QRCode = ({ navigation }): React.ReactElement => {
-//   const dispatch = useReduxDispatch()
-//   return (
-//     <View style={{ backgroundColor: white, flex: 1 }}>
-//       {/* <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//         <Image
-//           source={require('../Assets/QRcode.png')}
-//           style={{ height: 350, width: 350 }}
-//         />
-//         <Text
-//           style={{
-//             fontSize: 18,
-//             fontWeight: 'bold',
-//             padding: 15,
-//           }}
-//         >
-//           Scan with Companion Therapist App
-//         </Text>
-//       </View> */}
-//     </View>
-//   )}
+const QRCode = ({ navigation }): React.ReactElement => {
+  const dispatch = useReduxDispatch()
+  return (
+    <View style={{ backgroundColor: white, flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Image
+          source={require('../Assets/QRcode.png')}
+          style={{ height: 350, width: 350 }}
+        />
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+          }}
+        >
+          Scan with Companion Therapist App
+        </Text>
+      </View>
+    </View>
+  )
+}
+
+export default QRCode

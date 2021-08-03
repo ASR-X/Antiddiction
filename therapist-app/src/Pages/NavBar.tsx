@@ -3,10 +3,6 @@ import { TouchableOpacity, View } from 'react-native'
 
 //Screens
 import Home from './Home'
-import DateList from './DateList'
-import Analytics from './Analytics'
-
-import Connect from './Connect'
 
 //Tab
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -17,12 +13,11 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 //Routes
-import { MainRoutes } from './../Navigators/routes'
+import { MainRoutes } from '../Navigators/routes'
 
 //Colors
-import { Colors, ProfilePicture, QuestionText } from '../Components/styles'
-import { DrawerActions, NavigationContainer } from '@react-navigation/native'
-import QRCode from './QRCode'
+import { Colors, ProfilePicture } from '../Components/styles'
+import Plus from './Plus'
 // import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
@@ -46,7 +41,6 @@ const NavBar = (): React.ReactElement => {
           } else if (route.name === 'Connect') {
             iconName = focused ? 'people' : 'people-outline'
           }
-
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />
         },
@@ -57,9 +51,6 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.DateList} component={DateList} />
-      <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
-      <Tab.Screen name={MainRoutes.Connect} component={Connect} />
     </Tab.Navigator>
   )
 }
@@ -82,7 +73,7 @@ const HomeStackScreen = ({ navigation }) => {
         name={MainRoutes.Home}
         component={Home}
         options={{
-          title: 'Home',
+          title: 'Patients',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerTitleStyle: {
             marginTop: 30,
@@ -99,17 +90,17 @@ const HomeStackScreen = ({ navigation }) => {
                 marginTop: 40,
               }}
             >
-              <QRComp navigation={navigation} />
+              <PlusIcon navigation={navigation} />
             </View>
           ),
         }}
       />
 
       <HomeStack.Screen
-        component={QRCode}
-        name={MainRoutes.QRCode}
+        component={Plus}
+        name={MainRoutes.Plus}
         options={{
-          title: 'QR Code',
+          title: 'Plus sign',
           headerBackTitleVisible: false,
           headerLeftContainerStyle: { marginLeft: 10 },
         }}
@@ -118,13 +109,13 @@ const HomeStackScreen = ({ navigation }) => {
   )
 }
 
-const QRComp = ({ navigation }) => {
+const PlusIcon = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(MainRoutes.QRCode)}
+      onPress={() => navigation.navigate(MainRoutes.Plus)}
       style={{ marginHorizontal: 20 }}
     >
-      <Ionicons name={'qr-code-outline'} size={30} color={black} />
+      <Ionicons name={'add-outline'} size={30} color={black} />
     </TouchableOpacity>
   )
 }

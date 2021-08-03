@@ -38,7 +38,7 @@ export const Question2 = ({ navigation }): React.ReactElement => {
       title: 'Female',
     },
     {
-      id: '3',
+      id: '-9',
       title: 'Non-Binary',
     },
   ]

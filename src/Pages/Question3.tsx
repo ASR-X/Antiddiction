@@ -38,6 +38,10 @@ export const Question3 = ({ navigation }): React.ReactElement => {
     },
     {
       id: '3',
+      title: 'Seperated',
+    },
+    {
+      id: '4',
       title: 'Divorced or Widowed',
     },
   ]
