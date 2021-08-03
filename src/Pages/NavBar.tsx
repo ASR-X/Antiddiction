@@ -3,8 +3,10 @@ import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 
 //Screens
 import Home from './Home'
-import Sysco from './Sysco'
-import Profile from './Profile'
+import Calendar from './Calendar'
+import Analytics from './Analytics'
+
+import Connect from './Connect'
 import UsFood from './UsFood'
 import EditProfile from './EditProfile'
 import CardListScreen from './CardListScreen'
@@ -49,15 +51,14 @@ const NavBar = (): React.ReactElement => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName
-
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline'
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline'
-          } else if (route.name === 'Sysco') {
-            iconName = focused ? 'business' : 'business-outline'
-          } else if (route.name === 'US Foods') {
-            iconName = focused ? 'business' : 'business-outline'
+          } else if (route.name === 'Analytics') {
+            iconName = focused ? 'podium' : 'podium-outline'
+          } else if (route.name === 'Calendar') {
+            iconName = focused ? 'calendar' : 'calendar-outline'
+          } else if (route.name === 'Connect') {
+            iconName = focused ? 'people' : 'people-outline'
           }
 
           // You can return any component that you like here!
@@ -70,9 +71,9 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.Sysco} component={Sysco} />
-      <Tab.Screen name={MainRoutes.UsFoods} component={UsFoodsStackScreen} />
-      <Tab.Screen name={MainRoutes.Profile} component={ProfileStackScreen} />
+      <Tab.Screen name={MainRoutes.Calendar} component={Calendar} />
+      <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
+      <Tab.Screen name={MainRoutes.Connect} component={Connect} />
     </Tab.Navigator>
   )
 }
@@ -252,7 +253,7 @@ const UsFoodsStackScreen = ({ navigation }) => {
         name={MainRoutes.UsFoods}
         component={UsFood}
         options={{
-          title: '',
+          title: 'lalala',
           headerShown: false,
           headerLeft: () => (
             <Icon.Button
