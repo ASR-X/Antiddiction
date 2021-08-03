@@ -1,15 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import Firebase from '../../../config/Firebase.js'
 import { RootState } from '../index.js'
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  updateProfile,
-  signOut,
-  sendPasswordResetEmail,
-  confirmPasswordReset,
-} from 'firebase/auth'
 import * as Linking from 'expo-linking'
 
 const initialState = {
