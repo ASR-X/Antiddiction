@@ -72,14 +72,15 @@ const HomeStackScreen = ({ navigation }) => {
         name={MainRoutes.Home}
         component={Home}
         options={{
-          title: 'Home',
+          title: 'Patients',
           headerLeftContainerStyle: { marginLeft: 10 },
+          headerTitleStyle: {
+            marginTop: 30,
+            fontWeight: 'bold',
+            color: primary,
+            fontSize: 60,
+          },
           headerRightContainerStyle: { marginRight: 10 },
-          // headerRight: () => (
-          //   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          //     <QRComp navigation={navigation} />
-          //   </View>
-          // ),
         }}
       />
 
