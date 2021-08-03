@@ -80,7 +80,7 @@ const Home = ({ navigation }): React.ReactElement => {
   }, [reduxUser.timeline])
 
   useEffect(() => {
-      fetchRisk()
+    fetchRisk()
   }, [fetchRisk])
 
   return (

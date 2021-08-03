@@ -20,27 +20,24 @@ const initialState = {
 
 export const risk = createAsyncThunk(
   'user/risk',
-  async (
-    data: any,
-    { rejectWithValue }: any
-  ) => {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      };
-      return fetch('https://asrx.ngrok.io/getProb', requestOptions)
-          .then(async(response) => { 
-            const response_ser = await response.json()
-            return response_ser
-          })
-          .catch(error => {
-            return rejectWithValue(error.message);
-          })
-      }
-    )
+  async (data: any, { rejectWithValue }: any) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+    return fetch('https://asrx.ngrok.io/getProb', requestOptions)
+      .then(async (response) => {
+        const response_ser = await response.json()
+        return response_ser
+      })
+      .catch((error) => {
+        return rejectWithValue(error.message)
+      })
+  }
+)
 
 const userSlice = createSlice({
   name: 'user',
