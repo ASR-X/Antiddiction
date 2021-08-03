@@ -3,7 +3,7 @@ import { TouchableOpacity, View } from 'react-native'
 
 //Screens
 import Home from './Home'
-import Calendar from './Calendar'
+import DateList from './Calendar'
 import Analytics from './Analytics'
 
 import Connect from './Connect'
@@ -22,7 +22,7 @@ import { MainRoutes } from './../Navigators/routes'
 //Colors
 import { Colors, ProfilePicture } from '../Components/styles'
 import { DrawerActions, NavigationContainer } from '@react-navigation/native'
-import QRCode from './QRCode'
+// import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
 
@@ -59,7 +59,7 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.Calendar} component={Calendar} />
+      <Tab.Screen name={MainRoutes.Calendar} component={DateList} />
       <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
       <Tab.Screen name={MainRoutes.Connect} component={Connect} />
     </Tab.Navigator>
@@ -95,7 +95,7 @@ const HomeStackScreen = ({ navigation }) => {
         }}
       />
 
-      <HomeStack.Screen
+      {/* <HomeStack.Screen
         component={QRCode}
         name={MainRoutes.QRCode}
         options={{
@@ -103,7 +103,7 @@ const HomeStackScreen = ({ navigation }) => {
           headerBackTitleVisible: false,
           headerLeftContainerStyle: { marginLeft: 10 },
         }}
-      />
+      /> */}
     </HomeStack.Navigator>
   )
 }

@@ -68,7 +68,7 @@ const { primary, white, grey, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
-const Calendar = ({ navigation }): React.ReactElement => {
+const DateList = ({ navigation }): React.ReactElement => {
 
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
@@ -101,4 +101,4 @@ const Calendar = ({ navigation }): React.ReactElement => {
   )
 }
 
-export default Calendar
+export default DateList
