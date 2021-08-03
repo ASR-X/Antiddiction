@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 
 import { MainRoutes } from '../Navigators/routes'
 
@@ -71,7 +71,7 @@ const { primary, white, grey, black } = Colors
 
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
-import { selectUser, risk } from '../Redux/slices/user'
+import userSlice, { selectUser, risk } from '../Redux/slices/user'
 import { useReduxDispatch, useReduxSelector } from '../Redux'
 import { marginBottom } from 'styled-system'
 import { getDefaultMiddleware } from '@reduxjs/toolkit'
@@ -80,6 +80,7 @@ const Home = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
   const dispatch = useReduxDispatch()
   const [chonseActive, setChonseActive] = React.useState('0')
+  const [doses, setDoses] = React.useState([])
 
   const diff = useMemo(() => {
     var dates = reduxUser.dose.map(date => new Date(date))
@@ -95,27 +96,34 @@ const Home = ({ navigation }): React.ReactElement => {
       years: parseFloat((diffDays / 365).toFixed(2)),
     }
   },
-  [reduxUser.doses]);
+  [reduxUser.doses, reduxUser]);
 
-  const getData = (active) => {
+  const getData = useCallback((active) => {
     switch (active) {
       case '0':
-        return {labels: ['2 W', '3 W', '1 M'], data: [parseFloat((diff.weeks / 2).toFixed(2)) , parseFloat((diff.weeks / 3).toFixed(2)) , parseFloat((diff.months / 1).toFixed(2)) ]}
+        return {labels: ['2W', '3W', '1M'], data: [parseFloat((diff.weeks / 2).toFixed(2)) , parseFloat((diff.weeks / 3).toFixed(2)) , parseFloat((diff.months / 1).toFixed(2)) ]}
       case '1':
-        return {labels: ['1 M', '2 M', '3 M'], data: [parseFloat((diff.months).toFixed(2)) , parseFloat((diff.months / 2).toFixed(2)) , parseFloat((diff.months / 3).toFixed(2)) ]}
+        return {labels: ['1M', '2M', '3M'], data: [parseFloat((diff.months).toFixed(2)) , parseFloat((diff.months / 2).toFixed(2)) , parseFloat((diff.months / 3).toFixed(2)) ]}
       case '2':
-        return {labels: ['4 M', '6 M', '1 Y'], data: [parseFloat((diff.months / 4).toFixed(2)) , parseFloat((diff.months / 6).toFixed(2)) , parseFloat((diff.years).toFixed(2)) ]}
+        return {labels: ['4M', '6M', '1Y'], data: [parseFloat((diff.months / 4).toFixed(2)) , parseFloat((diff.months / 6).toFixed(2)) , parseFloat((diff.years).toFixed(2)) ]}
     }
-  }
+  }, [reduxUser.dose, diff])
 
   const fetchRisk = useCallback(async () => {
     const resultAction = await dispatch(risk(reduxUser))
     if (risk.fulfilled.match(resultAction)) {
-
+      var date = new Date()
+      const offset = date.getTimezoneOffset()
+      date = new Date(date.getTime() - offset * 60 * 1000)
+      var s_date = date.toISOString().split('T')[0]
+      if (reduxUser.dose.includes(s_date)) {
+        var new_probs = [1].concat(reduxUser.probs.slice(1))
+        dispatch(userSlice.actions.setFactor({ probs: new_probs }))
+      }
     } else {
       console.log(resultAction)
     }
-  }, [reduxUser.age])
+  }, [reduxUser.dose])
 
   useEffect(() => {
     fetchRisk()
@@ -154,8 +162,8 @@ const Home = ({ navigation }): React.ReactElement => {
             Clean
           </Text>
           <View style={{ marginRight: 50 }}>
-            <ProgressRings data=
-            {getData(chonseActive)} />
+            <ProgressRings 
+            data={getData(chonseActive)} />
           </View>
           <View
             style={{
@@ -195,7 +203,18 @@ const Home = ({ navigation }): React.ReactElement => {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
-                onPress={() => navigation.navigate(MainRoutes.Question1)}
+                onPress={() => {
+                  var date = new Date()
+                  const offset = date.getTimezoneOffset()
+                  date = new Date(date.getTime() - offset * 60 * 1000)
+                  var s_date = date.toISOString().split('T')[0]
+                  if (reduxUser.dose.includes(s_date)) {
+                    return
+                  }
+                  var new_dates = reduxUser.dose.concat(s_date)
+                  dispatch(userSlice.actions.setFactor({ dose: new_dates }))
+                }
+                }
               >
                 <Text style={{ fontSize: 21, color: white }}>Dosed</Text>
               </TouchableOpacity>
@@ -232,7 +251,7 @@ const Home = ({ navigation }): React.ReactElement => {
                 color: white,
               }}
             >
-              50%
+              { reduxUser.probs ? (reduxUser.probs[0] * 100).toFixed(2) : 50}%
             </Text>
             <Text
               style={{
@@ -268,7 +287,7 @@ const Home = ({ navigation }): React.ReactElement => {
                   color: white,
                 }}
               >
-                50%
+               { reduxUser.probs ? (reduxUser.probs[1] * 100).toFixed(2) : 50}%
               </Text>
               <Text
                 style={{
@@ -294,7 +313,7 @@ const Home = ({ navigation }): React.ReactElement => {
                   color: white,
                 }}
               >
-                50%
+                { reduxUser.probs ? (reduxUser.probs[2] * 100).toFixed(2) : 50}%
               </Text>
               <Text
                 style={{
@@ -320,7 +339,7 @@ const Home = ({ navigation }): React.ReactElement => {
                   color: white,
                 }}
               >
-                50%
+                { reduxUser.probs ? (reduxUser.probs[3] * 100).toFixed(2) : 50}%
               </Text>
               <Text
                 style={{
