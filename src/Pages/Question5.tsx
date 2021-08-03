@@ -8,12 +8,12 @@ import {
   SplashFooter,
   QuestionHeaderView,
   QuestionNextButton,
-  QuestionPrevButton,
   SplashLogo,
   QuestionTitle,
   QuestionText,
   SplashTextSign,
   StyledButton,
+  QuestionPrevButton,
 } from '../Components/styles'
 
 import * as Animatable from 'react-native-animatable'
@@ -25,21 +25,24 @@ import { useReduxSelector } from '../Redux'
 
 const { primary, white, grey, black } = Colors
 
-export const Question2 = ({ navigation }): React.ReactElement => {
+export const Question5 = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-
   const answers = [
     {
       id: '1',
-      title: 'Male',
+      title: 'Full Time',
     },
     {
       id: '2',
-      title: 'Female',
+      title: 'Part Time',
     },
     {
       id: '3',
-      title: 'Non-Binary',
+      title: 'Unemployed',
+    },
+    {
+      id: '4',
+      title: 'Not in Labor Force',
     },
   ]
 
@@ -48,18 +51,18 @@ export const Question2 = ({ navigation }): React.ReactElement => {
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
       <Animatable.View style={styles.footer}>
-        <QuestionTitle>Gender</QuestionTitle>
-        <MultipleChoice props={answers} num={'gender'} />
+        <QuestionTitle>Employment</QuestionTitle>
+        <MultipleChoice props={answers} num={'employment'} />
         <QuestionNextButton
           onPress={() => {
-            if (reduxUser.gender) navigation.navigate(MainRoutes.Question3)
+            if (reduxUser.employment) navigation.navigate(MainRoutes.Question6)
           }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
-            navigation.navigate(MainRoutes.Question1)
+            navigation.navigate(MainRoutes.Question4)
           }}
         >
           <MaterialIcons name="navigate-before" color={white} size={45} />

@@ -8,12 +8,12 @@ import {
   SplashFooter,
   QuestionHeaderView,
   QuestionNextButton,
-  QuestionPrevButton,
   SplashLogo,
   QuestionTitle,
   QuestionText,
   SplashTextSign,
   StyledButton,
+  QuestionPrevButton,
 } from '../Components/styles'
 
 import * as Animatable from 'react-native-animatable'
@@ -25,21 +25,28 @@ import { useReduxSelector } from '../Redux'
 
 const { primary, white, grey, black } = Colors
 
-export const Question2 = ({ navigation }): React.ReactElement => {
+export const Question4 = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-
   const answers = [
     {
       id: '1',
-      title: 'Male',
+      title: 'Below Grade 9',
     },
     {
       id: '2',
-      title: 'Female',
+      title: 'Some High School',
     },
     {
       id: '3',
-      title: 'Non-Binary',
+      title: 'High School',
+    },
+    {
+      id: '4',
+      title: 'Some College',
+    },
+    {
+      id: '5',
+      title: 'College & Beyond',
     },
   ]
 
@@ -48,18 +55,18 @@ export const Question2 = ({ navigation }): React.ReactElement => {
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
       <Animatable.View style={styles.footer}>
-        <QuestionTitle>Gender</QuestionTitle>
-        <MultipleChoice props={answers} num={'gender'} />
+        <QuestionTitle>Education (Highest)</QuestionTitle>
+        <MultipleChoice props={answers} num={'education'} />
         <QuestionNextButton
           onPress={() => {
-            if (reduxUser.gender) navigation.navigate(MainRoutes.Question3)
+            if (reduxUser.education) navigation.navigate(MainRoutes.Question5)
           }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
-            navigation.navigate(MainRoutes.Question1)
+            navigation.navigate(MainRoutes.Question3)
           }}
         >
           <MaterialIcons name="navigate-before" color={white} size={45} />

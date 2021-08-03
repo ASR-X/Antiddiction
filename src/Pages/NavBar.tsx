@@ -38,9 +38,6 @@ const { primary, white, black } = Colors
 
 //Individaul Page Stacks
 const HomeStack = createStackNavigator()
-const ProfileStack = createStackNavigator()
-const UsFoodsStack = createStackNavigator()
-const Tab = createBottomTabNavigator()
 
 const NavBar = (): React.ReactElement => {
   const Tab = createBottomTabNavigator()
@@ -104,63 +101,6 @@ const HomeStackScreen = ({ navigation }) => {
           ),
         }}
       />
-      <HomeStack.Screen
-        name={MainRoutes.CardListScreen}
-        component={CardListScreen}
-        options={({ route }) => ({
-          title: route.params.title,
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        })}
-      />
-      <HomeStack.Screen
-        name={MainRoutes.Favorites}
-        component={Favorites}
-        options={{
-          title: 'Your Favorites',
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        }}
-      />
-      <HomeStack.Screen
-        name={MainRoutes.CardItemDetails}
-        component={CardItemDetails}
-        options={({ route }) => ({
-          title: '',
-          headerBackTitleVisible: false,
-          headerTransparent: true,
-          headerTintColor: white,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        })}
-      />
-      <HomeStack.Screen
-        component={Support}
-        name={MainRoutes.Support}
-        options={{
-          title: 'Customer Support',
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        }}
-      />
-      <HomeStack.Screen
-        component={Payment}
-        name={MainRoutes.Payment}
-        options={{
-          title: 'Payment',
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        }}
-      />
-
-      <HomeStack.Screen
-        component={About}
-        name={MainRoutes.About}
-        options={{
-          title: 'About',
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        }}
-      />
 
       <HomeStack.Screen
         component={Search}
@@ -175,90 +115,6 @@ const HomeStackScreen = ({ navigation }) => {
   )
 }
 
-const ProfileStackScreen = ({ navigation }) => {
-  return (
-    <ProfileStack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: white,
-          shadowColor: white, // iOS
-          elevation: 0, // Android
-        },
-        headerTintColor: black,
-      }}
-    >
-      <ProfileStack.Screen
-        name={MainRoutes.Profile}
-        component={Profile}
-        options={{
-          title: '',
-          headerStyle: { borderBottomColor: white },
-          headerLeftContainerStyle: { marginLeft: 15 },
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              backgroundColor={white}
-              color={black}
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-          headerRight: () => (
-            <MaterialCommunityIcons.Button
-              name="account-edit"
-              size={25}
-              backgroundColor={white}
-              color={black}
-              onPress={() => navigation.navigate(MainRoutes.EditProfile)}
-            />
-          ),
-        }}
-      />
-      <ProfileStack.Screen
-        name={MainRoutes.EditProfile}
-        options={{
-          title: 'Edit Profile',
-          headerLeftContainerStyle: { marginLeft: 10 },
-        }}
-        component={EditProfile}
-      />
-    </ProfileStack.Navigator>
-  )
-}
-
-const UsFoodsStackScreen = ({ navigation }) => {
-  return (
-    <UsFoodsStack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: white,
-          shadowColor: black, // iOS
-          elevation: 0, // Android
-        },
-        headerTintColor: black,
-      }}
-    >
-      <UsFoodsStack.Screen
-        name={MainRoutes.UsFoods}
-        component={UsFood}
-        options={{
-          title: 'lalala',
-          headerShown: false,
-          headerLeft: () => (
-            <Icon.Button
-              name="ios-menu"
-              size={25}
-              backgroundColor={white}
-              color={black}
-              onPress={() => navigation.openDrawer()}
-            />
-          ),
-        }}
-      />
-    </UsFoodsStack.Navigator>
-  )
-}
-
 const QRComp = ({ navigation }) => {
   return (
     <TouchableOpacity
@@ -266,14 +122,6 @@ const QRComp = ({ navigation }) => {
       style={{ marginHorizontal: 20 }}
     >
       <Ionicons name={'qr-code-outline'} size={30} color={black} />
-    </TouchableOpacity>
-  )
-}
-
-const SearchIcon = ({ navigation }) => {
-  return (
-    <TouchableOpacity onPress={() => navigation.navigate(MainRoutes.Search)}>
-      <Ionicons name={'search'} size={30} color={black} />
     </TouchableOpacity>
   )
 }

@@ -8,38 +8,41 @@ import {
   SplashFooter,
   QuestionHeaderView,
   QuestionNextButton,
-  QuestionPrevButton,
   SplashLogo,
   QuestionTitle,
   QuestionText,
   SplashTextSign,
   StyledButton,
+  QuestionPrevButton,
 } from '../Components/styles'
 
 import * as Animatable from 'react-native-animatable'
-import { MultipleChoice } from '../Components/MultipleChoice'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { justifyContent } from 'styled-system'
 import userSlice, { selectUser } from '../Redux/slices/user'
 import { useReduxSelector } from '../Redux'
+import { MultipleChoice } from '../Components/MultipleChoice'
 
 const { primary, white, grey, black } = Colors
 
-export const Question2 = ({ navigation }): React.ReactElement => {
+export const Question8 = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-
   const answers = [
     {
       id: '1',
-      title: 'Male',
+      title: 'Oral',
     },
     {
       id: '2',
-      title: 'Female',
+      title: 'Smoking',
     },
     {
       id: '3',
-      title: 'Non-Binary',
+      title: 'Inhalation',
+    },
+    {
+      id: '4',
+      title: 'Injection',
     },
   ]
 
@@ -48,18 +51,18 @@ export const Question2 = ({ navigation }): React.ReactElement => {
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
       <Animatable.View style={styles.footer}>
-        <QuestionTitle>Gender</QuestionTitle>
-        <MultipleChoice props={answers} num={'gender'} />
+        <QuestionTitle>Primary Administration Route</QuestionTitle>
+        <MultipleChoice props={answers} num={'admin'} />
         <QuestionNextButton
           onPress={() => {
-            if (reduxUser.gender) navigation.navigate(MainRoutes.Question3)
+            if (reduxUser.admin) navigation.navigate(MainRoutes.Question9)
           }}
         >
           <MaterialIcons name="navigate-next" color={white} size={45} />
         </QuestionNextButton>
         <QuestionPrevButton
           onPress={() => {
-            navigation.navigate(MainRoutes.Question1)
+            navigation.navigate(MainRoutes.Question7)
           }}
         >
           <MaterialIcons name="navigate-before" color={white} size={45} />

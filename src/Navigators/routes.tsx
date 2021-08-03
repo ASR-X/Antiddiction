@@ -7,50 +7,37 @@ export enum MainRoutes {
   Question1 = 'Question 1',
   Question2 = 'Question 2',
   Question3 = 'Question 3',
-  Welcome = 'Welcome',
+  Question4 = 'Question 4',
+  Question5 = 'Question 5',
+  Question6 = 'Question 6',
+  Question7 = 'Question 7',
+  Question8 = 'Question 8',
+  Question9 = 'Question 9',
   Home = 'Home',
-  Profile = 'Profile',
   NavBar = 'NavBar',
-  Sysco = 'Sysco',
-  UsFoods = 'US Foods',
   Calendar = 'Calendar',
   Analytics = 'Analytics',
   Connect = 'Connect',
-  EditProfile = 'Edit Profile',
-  CardListScreen = 'Card List',
-  CardItemDetails = 'Card Item Details',
-  NewUserWelcome = 'New User Welcome',
-  FoodAccounts = 'Food Account',
-  Favorites = 'Favorites',
-  Support = 'Support',
-  About = 'About',
-  Payment = 'Payment',
-  Search = 'Search',
   QRCode = 'qr code',
 }
 
 export type MainStackParamList = {
   [MainRoutes.SplashScreen]: undefined
-  [MainRoutes.Welcome]: undefined
   [MainRoutes.Home]: { update: boolean } | undefined // just an example, "update" will later be used for version checks
-  [MainRoutes.Profile]: undefined
   [MainRoutes.Question1]: undefined
   [MainRoutes.Question2]: undefined
   [MainRoutes.Question3]: undefined
+  [MainRoutes.Question4]: undefined
+  [MainRoutes.Question5]: undefined
+  [MainRoutes.Question6]: undefined
+  [MainRoutes.Question7]: undefined
+  [MainRoutes.Question8]: undefined
+  [MainRoutes.Question9]: undefined
   [MainRoutes.NavBar]: undefined
-  [MainRoutes.Sysco]: undefined
-  [MainRoutes.UsFoods]: undefined
-  [MainRoutes.EditProfile]: undefined
-  [MainRoutes.CardListScreen]: undefined
-  [MainRoutes.CardItemDetails]: undefined
-  [MainRoutes.NewUserWelcome]: undefined
-  [MainRoutes.FoodAccounts]: undefined
-  [MainRoutes.Favorites]: undefined
-  [MainRoutes.Support]: undefined
-  [MainRoutes.About]: undefined
-  [MainRoutes.Payment]: undefined
-  [MainRoutes.Search]: undefined
   [MainRoutes.QRCode]: undefined
+  [MainRoutes.Calendar]: undefined
+  [MainRoutes.Analytics]: undefined
+  [MainRoutes.Connect]: undefined
 }
 
 export const MainStack = createStackNavigator<MainStackParamList>()
