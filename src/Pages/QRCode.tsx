@@ -32,20 +32,20 @@ const QRCode = ({ navigation }): React.ReactElement => {
   const dispatch = useReduxDispatch()
   return (
     <View style={{ backgroundColor: white, flex: 1 }}>
-      <View style={{flex:1, justifyContent:'center', alignItems:'center'}}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Image
           source={require('../Assets/QRcode.png')}
-          style={{ height: 350,width: 350 }}
+          style={{ height: 350, width: 350 }}
         />
         <Text
-        style={{
-          fontSize: 18,
-          fontWeight: 'bold',
-          padding: 15,
-        }}
-      >
-        Scan with Companion Therapist App
-      </Text>
+          style={{
+            fontSize: 18,
+            fontWeight: 'bold',
+            padding: 15,
+          }}
+        >
+          Scan with Companion Therapist App
+        </Text>
       </View>
     </View>
   )
