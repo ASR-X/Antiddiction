@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 
 import { MainRoutes } from '../Navigators/routes'
 
@@ -74,16 +74,44 @@ import { Ionicons, Fontisto } from '@expo/vector-icons'
 import { selectUser, risk } from '../Redux/slices/user'
 import { useReduxDispatch, useReduxSelector } from '../Redux'
 import { marginBottom } from 'styled-system'
+import { getDefaultMiddleware } from '@reduxjs/toolkit'
 
 const Home = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
   const dispatch = useReduxDispatch()
   const [chonseActive, setChonseActive] = React.useState('0')
 
+  const diff = useMemo(() => {
+    var dates = reduxUser.dose.map(date => new Date(date))
+    var date = dates.reduce(function (p, v) {
+      return ( p > v ? p : v );
+    });
+    const today = new Date();
+    const diffDays:number = ((today - date)/ (1000 * 3600 * 24))
+    return {
+      days: parseFloat(diffDays.toFixed(2)),
+      weeks: parseFloat((diffDays / 7).toFixed(2)),
+      months: parseFloat((diffDays / 30).toFixed(2)),
+      years: parseFloat((diffDays / 365).toFixed(2)),
+    }
+  },
+  [reduxUser.doses]);
+
+  const getData = (active) => {
+    switch (active) {
+      case '0':
+        return {labels: ['2 W', '3 W', '1 M'], data: [parseFloat((diff.weeks / 2).toFixed(2)) , parseFloat((diff.weeks / 3).toFixed(2)) , parseFloat((diff.months / 1).toFixed(2)) ]}
+      case '1':
+        return {labels: ['1 M', '2 M', '3 M'], data: [parseFloat((diff.months).toFixed(2)) , parseFloat((diff.months / 2).toFixed(2)) , parseFloat((diff.months / 3).toFixed(2)) ]}
+      case '2':
+        return {labels: ['4 M', '6 M', '1 Y'], data: [parseFloat((diff.months / 4).toFixed(2)) , parseFloat((diff.months / 6).toFixed(2)) , parseFloat((diff.years).toFixed(2)) ]}
+    }
+  }
+
   const fetchRisk = useCallback(async () => {
     const resultAction = await dispatch(risk(reduxUser))
     if (risk.fulfilled.match(resultAction)) {
-      console.log(reduxUser)
+
     } else {
       console.log(resultAction)
     }
@@ -126,7 +154,8 @@ const Home = ({ navigation }): React.ReactElement => {
             Clean
           </Text>
           <View style={{ marginRight: 50 }}>
-            <ProgressRings data={[0.4, 0.6, 0.8]} />
+            <ProgressRings data=
+            {getData(chonseActive)} />
           </View>
           <View
             style={{
@@ -177,7 +206,7 @@ const Home = ({ navigation }): React.ReactElement => {
           style={{
             borderWidth: 2,
             borderColor: white,
-            marginBottom: 15,
+            marginBottom: 25,
             marginHorizontal: 12,
             borderRadius: 15,
             alignItems: 'center',
