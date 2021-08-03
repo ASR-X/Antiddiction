@@ -97,12 +97,11 @@ const HomeStackScreen = ({ navigation }) => {
           title: 'Home',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerRightContainerStyle: { marginRight: 10 },
-          // headerRight: () => (
-          //   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          //     {/* <SearchIcon navigation={navigation} /> */}
-          //     {/* ProfilePictureComp navigation={navigation} /> */}
-          //   </View>
-          // ),
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <QRComp navigation={navigation} />
+            </View>
+          ),
         }}
       />
       <HomeStack.Screen
@@ -260,16 +259,13 @@ const UsFoodsStackScreen = ({ navigation }) => {
   )
 }
 
-const ProfilePictureComp = ({ navigation }) => {
+const QRComp = ({ navigation }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate(MainRoutes.Profile)}
       style={{ marginHorizontal: 20 }}
     >
-      <ProfilePicture
-        source={require('../Assets/mockPFP.jpg')}
-        resizeMode="cover"
-      />
+      <Ionicons name={'qr-code-outline'} size={30} color={black} />
     </TouchableOpacity>
   )
 }
