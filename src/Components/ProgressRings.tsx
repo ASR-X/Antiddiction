@@ -20,7 +20,7 @@ export const ProgressRings = ({ data }): React.ReactElement => {
     <ProgressChart
       data={data}
       width={Dimensions.get('window').width - 80} // from react-native
-      height={220}
+      height={200}
       chartConfig={{
         backgroundColor: '#ffffff',
         backgroundGradientFrom: '#ffffff',
@@ -29,10 +29,14 @@ export const ProgressRings = ({ data }): React.ReactElement => {
         color: (opacity = 1) => `rgba(0, 0, 255, ${opacity})`,
         style: {
           borderRadius: 16,
+          justifyContent: 'center',
+          alignItems: 'center',
         },
       }}
       style={{
         marginVertical: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     />
   )
