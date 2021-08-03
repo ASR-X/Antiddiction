@@ -48,6 +48,7 @@ const QRCode = ({ navigation }): React.ReactElement => {
         </Text>
       </View>
     </View>
-  )}
+  )
+}
 
 export default QRCode
