@@ -83,12 +83,12 @@ const Home = ({ navigation }): React.ReactElement => {
   const [doses, setDoses] = React.useState([])
 
   const diff = useMemo(() => {
-    var dates = reduxUser.dose.map(date => new Date(date))
+    var dates = reduxUser.dose.map((date) => new Date(date))
     var date = dates.reduce(function (p, v) {
-      return ( p > v ? p : v );
-    });
-    const today = new Date();
-    const diffDays:number = ((today - date)/ (1000 * 3600 * 24))
+      return p > v ? p : v
+    })
+    const today = new Date()
+    const diffDays: number = (today - date) / (1000 * 3600 * 24)
     return {
       days: parseFloat(diffDays.toFixed(2)),
       weeks: parseFloat((diffDays / 7).toFixed(2)),
@@ -197,7 +197,7 @@ const Home = ({ navigation }): React.ReactElement => {
                 style={{
                   width: 120,
                   height: 50,
-                  backgroundColor: primary,
+                  backgroundColor: '#cf0303',
                   borderRadius: 10,
                   marginLeft: 18,
                   alignItems: 'center',

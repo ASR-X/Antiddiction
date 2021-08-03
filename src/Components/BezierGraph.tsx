@@ -19,7 +19,7 @@ export const BezierGraph = ({ data }): React.ReactElement => {
   return (
     <LineChart
       data={data}
-      width={Dimensions.get('window').width} // from react-native
+      width={Dimensions.get('window').width - 30} // from react-native
       height={400}
       yAxisInterval={10}
       verticalLabelRotation={60}
