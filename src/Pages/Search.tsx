@@ -20,7 +20,7 @@ import {
   MenuItem,
   MenuItemText,
 } from '../Components/styles'
-import { TouchableOpacity } from 'react-native'
+import { Image } from 'react-native'
 import { TouchableRipple } from 'react-native-paper'
 
 // Colors
@@ -43,12 +43,11 @@ const Search = ({ navigation }): React.ReactElement => {
         >
           Scan with Companion App
         </Text>
-        {/* <Image
-          src={require('../Assets/QRcode.png')} 
+        <Image
+          source={require('../Assets/QRcode.png')} 
           style={{ height: "70px", paddingRight: "10px" }} 
-        />  */}
+        />
       
-        
     </SafeAreaView>
   )
 }
