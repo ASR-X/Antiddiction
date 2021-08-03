@@ -95,7 +95,6 @@ const DateList = ({ navigation }): React.ReactElement => {
             marginRight: 15,
             marginBottom: 15,
           }}
-          
           // Specify theme properties to override specific styles for calendar parts. Default = {}
           theme={{
             textDayFontSize: 14,
@@ -145,9 +144,8 @@ const DateList = ({ navigation }): React.ReactElement => {
             >
               Aug 3
             </Text>
-            
           </View>
-          </View>
+        </View>
       </SafeAreaView>
     </View>
   )
