@@ -100,12 +100,12 @@ const HomeStackScreen = ({ navigation }) => {
           headerLeftContainerStyle: { marginLeft: 10 },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <FontAwesome name={MainRoutes.QRCode} />
-              </View>
-            ),
-          }}
-        />
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <FontAwesome name={MainRoutes.QRCode} />
+            </View>
+          ),
+        }}
+      />
       <HomeStack.Screen
         name={MainRoutes.CardListScreen}
         component={CardListScreen}
@@ -173,7 +173,7 @@ const HomeStackScreen = ({ navigation }) => {
           headerLeftContainerStyle: { marginLeft: 10 },
         }}
       />
-    <HomeStack.Screen
+      <HomeStack.Screen
         component={QR}
         name={MainRoutes.QRCode}
         options={{
@@ -283,7 +283,6 @@ const ProfilePictureComp = ({ navigation }) => {
     </TouchableOpacity>
   )
 }
-
 
 const qrcode = ({ navigation }) => {
   return (

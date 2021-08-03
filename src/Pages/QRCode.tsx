@@ -5,31 +5,30 @@ import { useReduxDispatch } from '../Redux'
 
 //colors
 import {
-    Colors,
-    Avatar,
-    UserInfoSection,
-    StyledTitle,
-    Caption,
-    Row,
-    InfoBoxWrapper,
-    InfoBox,
-    CategoryButtonText,
-    MenuWrapper,
-    MenuItem,
-    MenuItemText,
-  } from '../Components/styles'
-  const { greyLight, white, grey, primary, black } = Colors
+  Colors,
+  Avatar,
+  UserInfoSection,
+  StyledTitle,
+  Caption,
+  Row,
+  InfoBoxWrapper,
+  InfoBox,
+  CategoryButtonText,
+  MenuWrapper,
+  MenuItem,
+  MenuItemText,
+} from '../Components/styles'
+const { greyLight, white, grey, primary, black } = Colors
 
-  //ICON
-  import Icon from 'react-native-vector-icons/FontAwesome';
-
+//ICON
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const qrcode = ({ navigation }): React.ReactElement => {
-    const dispatch = useReduxDispatch()
-    return (
-      <SafeAreaView style={{ backgroundColor: white, flex: 1 }}>
-        <Text>QR Code</Text>
-      </SafeAreaView>
-    )
-  }
-  export default qrcode
+  const dispatch = useReduxDispatch()
+  return (
+    <SafeAreaView style={{ backgroundColor: white, flex: 1 }}>
+      <Text>QR Code</Text>
+    </SafeAreaView>
+  )
+}
+export default qrcode
