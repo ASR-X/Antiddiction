@@ -88,8 +88,9 @@ const SurveyNavigator = (): React.ReactElement => {
 
 const MainNavigator = (): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-  if (!reduxUser.Home) return <SurveyNavigator />
-  else return <HomeNavigator />
+  // if (!reduxUser.Home) return <SurveyNavigator />
+  // else return <HomeNavigator />
+  return <HomeNavigator />
 }
 
 const MainNavigation = (): React.ReactElement => {

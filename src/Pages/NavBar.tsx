@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 
 //Screens
 import Home from './Home'
@@ -7,15 +7,6 @@ import Calendar from './Calendar'
 import Analytics from './Analytics'
 
 import Connect from './Connect'
-import UsFood from './UsFood'
-import EditProfile from './EditProfile'
-import CardListScreen from './CardListScreen'
-import CardItemDetails from './CardItemDetail'
-import Favorites from './Favorites'
-import Support from './Support'
-import About from './About'
-import Payment from './Payment'
-import Search from './Search'
 
 //Tab
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -24,8 +15,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 //Icons
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import Icon from 'react-native-vector-icons/Ionicons'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 //Routes
 import { MainRoutes } from './../Navigators/routes'
@@ -33,6 +22,7 @@ import { MainRoutes } from './../Navigators/routes'
 //Colors
 import { Colors, ProfilePicture } from '../Components/styles'
 import { DrawerActions, NavigationContainer } from '@react-navigation/native'
+import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
 
@@ -106,8 +96,8 @@ const HomeStackScreen = ({ navigation }) => {
       />
 
       <HomeStack.Screen
-        component={Search}
-        name={MainRoutes.Search}
+        component={QRCode}
+        name={MainRoutes.QRCode}
         options={{
           title: 'QR Code',
           headerBackTitleVisible: false,
@@ -121,7 +111,7 @@ const HomeStackScreen = ({ navigation }) => {
 const QRComp = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(MainRoutes.Search)}
+      onPress={() => navigation.navigate(MainRoutes.QRCode)}
       style={{ marginHorizontal: 20 }}
     >
       <Ionicons name={'qr-code-outline'} size={30} color={black} />
