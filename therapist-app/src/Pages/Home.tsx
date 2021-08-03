@@ -37,17 +37,6 @@ import { useReduxDispatch, useReduxSelector } from '../Redux'
 
 const Home = ({ navigation }): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-  const dispatch = useReduxDispatch()
-
-  const fetchRisk = useCallback(async () => {
-    const resultAction = await dispatch(risk(reduxUser))
-    if (!risk.fulfilled.match(resultAction)) {
-    }
-  }, [reduxUser.timeline])
-
-  useEffect(() => {
-    fetchRisk()
-  }, [fetchRisk])
 
   return (
     <View style={{ flex: 1, backgroundColor: white }}>

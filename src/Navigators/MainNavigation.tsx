@@ -12,10 +12,6 @@ import { selectUser } from '../Redux/slices/user'
 
 //Screens Auth
 import SplashScreen from '../Pages/SplashScreen'
-import FoodAccounts from '../Pages/FoodAccounts'
-
-import { getAuth } from 'firebase/auth'
-import Firebase from '../../config/Firebase.js'
 
 //Screens Main
 import NavBar from '../Pages/NavBar'
@@ -88,9 +84,9 @@ const SurveyNavigator = (): React.ReactElement => {
 
 const MainNavigator = (): React.ReactElement => {
   const reduxUser = useReduxSelector(selectUser)
-  // if (!reduxUser.Home) return <SurveyNavigator />
-  // else return <HomeNavigator />
-  return <HomeNavigator />
+  if (!reduxUser.Home) return <SurveyNavigator />
+  else return <HomeNavigator />
+  // return <HomeNavigator />
 }
 
 const MainNavigation = (): React.ReactElement => {

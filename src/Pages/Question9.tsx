@@ -45,7 +45,6 @@ export const Question9 = ({ navigation }): React.ReactElement => {
         <CalendarChoice props={answers} num={'dose'} />
         <QuestionNextButton
           onPress={() => {
-            console.log(reduxUser)
             if (reduxUser.dose.length > 0)
               dispatch(userSlice.actions.setFactor({ Home: true }))
           }}
