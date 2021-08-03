@@ -68,16 +68,6 @@ const { primary, white, grey, black } = Colors
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
 const Home = ({ navigation }): React.ReactElement => {
-  const renderItem = ({ item }) => {
-    return (
-      <CardView
-        itemData={item}
-        onPress={() =>
-          navigation.navigate(MainRoutes.CardItemDetails, { itemData: item })
-        }
-      />
-    )
-  }
 
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
@@ -138,73 +128,6 @@ const Home = ({ navigation }): React.ReactElement => {
       </SafeAreaView>
     </View>
   )
-}
-
-const Categories = ({ label, navigation, title }) => {
-  return (
-    <CategoryButton
-      onPress={() =>
-        navigation.navigate(MainRoutes.CardListScreen, { title: title })
-      }
-    >
-      <CategoryIcon>
-        <IconImage label={label} />
-      </CategoryIcon>
-      <CategoryButtonText>{label}</CategoryButtonText>
-    </CategoryButton>
-  )
-}
-
-const IconImage = ({ label }) => {
-  if (label === 'Meat') {
-    return (
-      <Image
-        source={require('../Assets/FoodIcons/meatOutline.png')}
-        resizeMode="center"
-        style={{ width: 25, height: 25, tintColor: primary }}
-      />
-    )
-  } else if (label === 'Seafood') {
-    return (
-      <Image
-        source={require('../Assets/FoodIcons/seafoodOutline.png')}
-        resizeMode="center"
-        style={{ width: 25, height: 25, tintColor: primary }}
-      />
-    )
-  } else if (label === 'Poultry') {
-    return (
-      <Image
-        source={require('../Assets/FoodIcons/poultryOutline.png')}
-        resizeMode="center"
-        style={{ width: 25, height: 25, tintColor: primary }}
-      />
-    )
-  } else if (label === 'Produce') {
-    return (
-      <Image
-        source={require('../Assets/FoodIcons/produceOutline.png')}
-        resizeMode="center"
-        style={{ width: 25, height: 25, tintColor: primary }}
-      />
-    )
-  } else if (label === 'Frozen') {
-    return (
-      <Image
-        source={require('../Assets/FoodIcons/frozenOutline.png')}
-        resizeMode="center"
-        style={{ width: 25, height: 25, tintColor: primary }}
-      />
-    )
-  } else {
-    return (
-      <Image
-        source={require('../Assets/FoodIcons/dairyOutline.png')}
-        resizeMode="center"
-        style={{ width: 25, height: 25, tintColor: primary }}
-      />
-    )
-  }
 }
 
 export default Home
