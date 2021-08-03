@@ -273,7 +273,7 @@ const UsFoodsStackScreen = ({ navigation }) => {
 const ProfilePictureComp = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(MainRoutes.Profile)}
+      onPress={() => navigation.navigate(MainRoutes.Search)}
       style={{ marginHorizontal: 20 }}
     >
       <ProfilePicture
