@@ -56,10 +56,10 @@ export const Plus = ({ navigation }): React.ReactElement => {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: black}}>
+    <View style={{ flex: 1, backgroundColor: black }}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
     </View>
   )
