@@ -83,7 +83,13 @@ const HomeStackScreen = ({ navigation }) => {
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 40,}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: 40,
+              }}
+            >
               <PlusIcon navigation={navigation} />
             </View>
           ),

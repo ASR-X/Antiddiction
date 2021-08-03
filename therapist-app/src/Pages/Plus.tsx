@@ -67,8 +67,7 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: white,
-        }}>
+    <View style={{ flex: 1, backgroundColor: white }}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
