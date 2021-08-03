@@ -37,8 +37,9 @@ import { selectUser } from '../Redux/slices/user'
 import { useReduxDispatch, useReduxSelector } from '../Redux'
 import { Patients } from '../Data/Patients'
 import { NPatients } from '../Data/NPatients'
+import { MainRoutes } from '../Navigators/routes'
 
-const Item = ({ item, onPress }): React.ReactElement<any> => {
+const Item = ({ item, gender, admin, ldose, onPress }): React.ReactElement<any> => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -85,7 +86,7 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
               color: primary,
             }}
           >
-            35%
+            {item.prob}
           </Text>
         </View>
       </View>
@@ -106,8 +107,8 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
             flex: 3,
           }}
         >
-          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
-          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+          <Text style={{ fontSize: 15, color: primary }}>Age - {item.age}</Text>
+          <Text style={{ fontSize: 15, color: primary }}>First Age - {item.firstAge}</Text>
         </View>
         <View
           style={{
@@ -116,8 +117,9 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
             flex: 3,
           }}
         >
-          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
-          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+          <Text style={{ fontSize: 15, color: primary }}>Gender - {gender}
+          </Text>
+          <Text style={{ fontSize: 15, color: primary }}>Route - {admin}</Text>
         </View>
         <View
           style={{
@@ -126,8 +128,8 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
             flex: 3,
           }}
         >
-          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
-          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+          <Text style={{ fontSize: 13.5, color: primary }}>Dose - {ldose}</Text>
+          <Text style={{ fontSize: 15, color: primary }}>N. Drugs - {item.drugs.length}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -136,7 +138,38 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
 
 const Home = ({ route, navigation }): React.ReactElement => {
   const renderItem = ({ item }) => {
-    return <Item item={item} onPress={() => {}} />
+    var gender = ""
+    var admin = ""
+    var dose = ""
+    if (item.gender === '1')
+        gender =  'Male'
+    else if (item.gender === '2')
+        gender = 'Female'
+    else
+        gender = 'N/B'
+
+    if (item.admin === '1')
+        admin =  'Oral'
+    else if (item.admin === '2')
+        admin = 'Smoke'
+    else if (item.admin === '3')
+        admin = 'Inhale'
+    else if (item.admin === '4')
+        admin = 'Injection'
+    
+    var dates = item.dose.map((date) => new Date(date))
+    var l_dose = dates.reduce(function (p, v) {
+      return p > v ? p : v
+    })
+
+    const offset = l_dose.getTimezoneOffset()
+    l_dose = new Date(l_dose.getTime() - offset * 60 * 1000)
+    var s_date = l_dose.toISOString().split('T')[0]
+    s_date = s_date.slice(2)
+
+    return <Item item={item} gender={gender} admin={admin} ldose={s_date} onPress={() => {
+      navigation.navigate(MainRoutes.Dashboard, {patient: item})
+    }} />
   }
 
   console.log(route.params.Home)

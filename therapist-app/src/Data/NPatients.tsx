@@ -13,6 +13,7 @@ export const NPatients = [
     insurance: '4',
     marital: '4',
     Home: true,
+    prob: '12.4%'
   },
   {
     name: 'John Doe',
@@ -28,6 +29,7 @@ export const NPatients = [
     insurance: '2',
     marital: '2',
     Home: true,
+    prob: '5.2%'
   },
   {
     name: 'Jane Doe',
@@ -43,13 +45,14 @@ export const NPatients = [
     insurance: '2',
     marital: '2',
     Home: true,
+    prob: '10.7%'
   },
   {
     id: '4',
     name: 'Anthony Wang',
     admin: '3',
     age: '34',
-    dose: ['2021-07-27', '2021-07-29', '2021-08-03', '2021-08-01'],
+    dose: ['2019-07-27', '2020-07-29', '2021-04-03', '2020-08-01'],
     drugs: ['10', '9', '8', '7', '6', '5', '4', '3', '2', '11', '12', '13'],
     education: '5',
     employment: '2',
@@ -58,5 +61,6 @@ export const NPatients = [
     insurance: '4',
     marital: '4',
     Home: true,
+    prob: '20.7%'
   },
 ]

@@ -147,6 +147,7 @@ const Home = ({ navigation }): React.ReactElement => {
         var new_probs = [1].concat(reduxUser.probs.slice(1))
         dispatch(userSlice.actions.setFactor({ probs: new_probs }))
       }
+      console.log(reduxUser)
     } else {
       console.log(resultAction)
     }
@@ -347,7 +348,7 @@ const Home = ({ navigation }): React.ReactElement => {
                   color: grey,
                 }}
               >
-                Tomorrow
+                2nd Day
               </Text>
             </View>
             <View
@@ -373,7 +374,7 @@ const Home = ({ navigation }): React.ReactElement => {
                   color: grey,
                 }}
               >
-                Tomorrow
+                3rd Day
               </Text>
             </View>
           </View>

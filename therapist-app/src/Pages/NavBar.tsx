@@ -18,15 +18,44 @@ import { MainRoutes } from '../Navigators/routes'
 //Colors
 import { Colors, ProfilePicture } from '../Components/styles'
 import { Plus } from './Plus'
+import Dashboard from './Dashboard'
 // import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
 
 //Individaul Page Stacks
 const HomeStack = createStackNavigator()
+const DashboardStack = createStackNavigator()
 
 const NavBar = (): React.ReactElement => {
   return <HomeStackScreen />
+}
+
+const BotNav = (): React.ReactElement => {
+  const Tab = createBottomTabNavigator()
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName
+          if (route.name === 'Dashboard') {
+            iconName = focused ? 'home' : 'home-outline'
+          } else if (route.name === 'Analytics') {
+            iconName = focused ? 'podium' : 'podium-outline'
+          }
+
+          // You can return any component that you like here!
+          return <Ionicons name={iconName} size={size} color={color} />
+        },
+      })}
+      tabBarOptions={{
+        activeTintColor: primary,
+        inactiveTintColor: 'gray',
+      }}
+    >
+      <Tab.Screen name={MainRoutes.Dashboard} component={DashboardStackScreen} />
+    </Tab.Navigator>
+  )
 }
 
 export default NavBar
@@ -79,7 +108,47 @@ const HomeStackScreen = () => {
           headerShown: false,
         }}
       />
+
+      <HomeStack.Screen
+        component={BotNav}
+        name={MainRoutes.Dashboard}
+        options={{
+          headerShown: false,
+        }}
+      />
     </HomeStack.Navigator>
+  )
+}
+
+const DashboardStackScreen = () => {
+  return (
+    <DashboardStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: white,
+          shadowColor: white, // iOS
+          elevation: 0, // Android
+        },
+        headerTintColor: black,
+      }}
+    >
+      <DashboardStack.Screen
+        name={MainRoutes.Dashboard}
+        component={Dashboard}
+        initialParams={{ Home: false }}
+        options={({ navigation }) => ({
+          title: 'Dashboard',
+          headerLeftContainerStyle: { marginLeft: 10 },
+          headerTitleStyle: {
+            marginTop: 30,
+            fontWeight: 'bold',
+            color: primary,
+            fontSize: 60,
+          },
+          headerRightContainerStyle: { marginRight: 10 },
+        })}
+      />
+    </DashboardStack.Navigator>
   )
 }
 
