@@ -62,6 +62,8 @@ import {
 //Slider
 import VerticalSwiper from '../Components/VerticalSwiper'
 
+import userSlice, { selectUser, risk } from '../Redux/slices/user'
+import { useReduxDispatch, useReduxSelector } from '../Redux'
 // Colors
 const { primary, white, grey, black } = Colors
 
@@ -91,7 +93,9 @@ const DateList = ({ navigation }): React.ReactElement => {
             marginTop: 30,
             marginLeft: 15,
             marginRight: 15,
+            marginBottom: 15,
           }}
+          
           // Specify theme properties to override specific styles for calendar parts. Default = {}
           theme={{
             textDayFontSize: 14,
@@ -99,6 +103,51 @@ const DateList = ({ navigation }): React.ReactElement => {
             textDayHeaderFontSize: 14,
           }}
         />
+        <View
+          style={{
+            borderWidth: 2,
+            borderColor: white,
+            marginBottom: 25,
+            marginHorizontal: 12,
+            borderRadius: 15,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: primary,
+            flex: 2,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 25,
+              fontWeight: '200',
+              color: white,
+            }}
+          >
+            Risk
+          </Text>
+          <View style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
+            <Text
+              style={{
+                fontSize: 70,
+                fontWeight: '200',
+                color: white,
+              }}
+            >
+              {1.42}%
+            </Text>
+            <Text
+              style={{
+                fontSize: 17,
+                fontWeight: '200',
+                color: grey,
+                marginTop: -7,
+              }}
+            >
+              Aug 3
+            </Text>
+            
+          </View>
+          </View>
       </SafeAreaView>
     </View>
   )
