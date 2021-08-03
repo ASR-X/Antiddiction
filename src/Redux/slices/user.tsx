@@ -5,6 +5,8 @@ import * as Linking from 'expo-linking'
 
 const initialState = {
   user: {
+    age: null as number,
+    firstAge: null as number,
     gender: null as any,
     marital: null as any,
     education: null as any,
