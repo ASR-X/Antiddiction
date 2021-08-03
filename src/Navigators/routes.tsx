@@ -19,6 +19,9 @@ export enum MainRoutes {
   NavBar = 'NavBar',
   Sysco = 'Sysco',
   UsFoods = 'US Foods',
+  Calendar = 'Calendar',
+  Analytics = 'Analytics',
+  Connect = 'Connect',
   EditProfile = 'Edit Profile',
   CardListScreen = 'Card List',
   CardItemDetails = 'Card Item Details',
@@ -29,6 +32,7 @@ export enum MainRoutes {
   About = 'About',
   Payment = 'Payment',
   Search = 'Search',
+  QRCode = 'qr code',
 }
 
 export type MainStackParamList = {
@@ -58,6 +62,7 @@ export type MainStackParamList = {
   [MainRoutes.About]: undefined
   [MainRoutes.Payment]: undefined
   [MainRoutes.Search]: undefined
+  [MainRoutes.QRCode]: undefined
 }
 
 export const MainStack = createStackNavigator<MainStackParamList>()

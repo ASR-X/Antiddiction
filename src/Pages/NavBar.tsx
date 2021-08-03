@@ -3,8 +3,10 @@ import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 
 //Screens
 import Home from './Home'
-import Sysco from './Sysco'
-import Profile from './Profile'
+import Calendar from './Calendar'
+import Analytics from './Analytics'
+
+import Connect from './Connect'
 import UsFood from './UsFood'
 import EditProfile from './EditProfile'
 import CardListScreen from './CardListScreen'
@@ -14,6 +16,7 @@ import Support from './Support'
 import About from './About'
 import Payment from './Payment'
 import Search from './Search'
+import QR from './QRCode'
 
 //Tab
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -22,8 +25,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 //Icons
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import Icon from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons'
 
 //Routes
 import { MainRoutes } from './../Navigators/routes'
@@ -47,19 +51,18 @@ const NavBar = (): React.ReactElement => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName
-
           if (route.name === 'Home') {
             iconName = focused ? 'home' : 'home-outline'
-          } else if (route.name === 'Profile') {
-            iconName = focused ? 'person' : 'person-outline'
-          } else if (route.name === 'Sysco') {
-            iconName = focused ? 'business' : 'business-outline'
-          } else if (route.name === 'US Foods') {
-            iconName = focused ? 'business' : 'business-outline'
+          } else if (route.name === 'Analytics') {
+            iconName = focused ? 'podium' : 'podium-outline'
+          } else if (route.name === 'Calendar') {
+            iconName = focused ? 'calendar' : 'calendar-outline'
+          } else if (route.name === 'Connect') {
+            iconName = focused ? 'people' : 'people-outline'
           }
 
           // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />
+          return <FontAwesome name={iconName} size={size} color={color} />
         },
       })}
       tabBarOptions={{
@@ -68,9 +71,9 @@ const NavBar = (): React.ReactElement => {
       }}
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-      <Tab.Screen name={MainRoutes.Sysco} component={Sysco} />
-      <Tab.Screen name={MainRoutes.UsFoods} component={UsFoodsStackScreen} />
-      <Tab.Screen name={MainRoutes.Profile} component={ProfileStackScreen} />
+      <Tab.Screen name={MainRoutes.Calendar} component={Calendar} />
+      <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
+      <Tab.Screen name={MainRoutes.Connect} component={Connect} />
     </Tab.Navigator>
   )
 }
@@ -90,18 +93,17 @@ const HomeStackScreen = ({ navigation }) => {
       }}
     >
       <HomeStack.Screen
-        name={MainRoutes.Home}
-        component={Home}
+        name={MainRoutes.QRCode}
+        component={qrcode}
         options={{
-          title: 'Home',
+          title: 'qrcode',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerRightContainerStyle: { marginRight: 10 },
-          // headerRight: () => (
-          //   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          //     {/* <SearchIcon navigation={navigation} /> */}
-          //     {/* ProfilePictureComp navigation={navigation} /> */}
-          //   </View>
-          // ),
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <FontAwesome name={MainRoutes.QRCode} />
+            </View>
+          ),
         }}
       />
       <HomeStack.Screen
@@ -165,6 +167,15 @@ const HomeStackScreen = ({ navigation }) => {
       <HomeStack.Screen
         component={Search}
         name={MainRoutes.Search}
+        options={{
+          title: 'What do you need?',
+          headerBackTitleVisible: false,
+          headerLeftContainerStyle: { marginLeft: 10 },
+        }}
+      />
+      <HomeStack.Screen
+        component={QR}
+        name={MainRoutes.QRCode}
         options={{
           title: 'What do you need?',
           headerBackTitleVisible: false,
@@ -242,7 +253,7 @@ const UsFoodsStackScreen = ({ navigation }) => {
         name={MainRoutes.UsFoods}
         component={UsFood}
         options={{
-          title: '',
+          title: 'lalala',
           headerShown: false,
           headerLeft: () => (
             <Icon.Button
@@ -262,7 +273,7 @@ const UsFoodsStackScreen = ({ navigation }) => {
 const ProfilePictureComp = ({ navigation }) => {
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(MainRoutes.Profile)}
+      onPress={() => navigation.navigate(MainRoutes.Search)}
       style={{ marginHorizontal: 20 }}
     >
       <ProfilePicture
@@ -273,10 +284,10 @@ const ProfilePictureComp = ({ navigation }) => {
   )
 }
 
-const SearchIcon = ({ navigation }) => {
+const qrcode = ({ navigation }) => {
   return (
-    <TouchableOpacity onPress={() => navigation.navigate(MainRoutes.Search)}>
-      <Ionicons name={'search'} size={30} color={black} />
+    <TouchableOpacity onPress={() => navigation.navigate(MainRoutes.QRCode)}>
+      <FontAwesome name={'qrcode'} size={30} color={black} />
     </TouchableOpacity>
   )
 }
