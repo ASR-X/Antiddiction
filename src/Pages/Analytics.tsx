@@ -117,14 +117,7 @@ const Analytics = ({ navigation }): React.ReactElement => {
             ],
           }}
         />
-        <CalendarList
-          // Enable horizontal scrolling, default = false
-          horizontal={true}
-          // Enable paging on horizontal, default = false
-          pagingEnabled={true}
-          // Set custom calendarWidth.
-          calendarWidth={Dimensions.get('window').width}
-        />
+       
       </SafeAreaView>
     </View>
   )
