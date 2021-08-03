@@ -4,19 +4,8 @@ import * as Linking from 'expo-linking'
 
 const initialState = {
   user: {
-    age: null as number,
-    firstAge: null as number,
-    gender: null as any,
-    marital: null as any,
-    education: null as any,
-    employment: null as any,
-    insurance: null as any,
-    drugs: [],
-    admin: null as any,
-    dose: [],
-    Home: null as any,
+    Home: false,
   },
-  error: null as any,
 }
 
 const userSlice = createSlice({

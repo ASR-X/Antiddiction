@@ -35,6 +35,8 @@ const { primary, white, grey, black } = Colors
 
 import { selectUser } from '../Redux/slices/user'
 import { useReduxDispatch, useReduxSelector } from '../Redux'
+import { Patients } from '../Data/Patients'
+import { NPatients } from '../Data/NPatients'
 
 const Item = ({ item, onPress }): React.ReactElement<any> => {
   return (
@@ -46,98 +48,98 @@ const Item = ({ item, onPress }): React.ReactElement<any> => {
         borderWidth: 2,
         borderColor: primary,
         borderRadius: 10,
-        alignItems: 'center',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
       }}
     >
       <View
         style={{
-          justifyContent: 'center',
+          flex: 1,
           alignItems: 'center',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 35,
-            color: primary,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          {item.name}
-        </Text>
+          <Text
+            style={{
+              fontSize: 35,
+              color: primary,
+            }}
+          >
+            {item.name}
+          </Text>
+        </View>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 35,
+              color: primary,
+            }}
+          >
+            35%
+          </Text>
+        </View>
       </View>
+
       <View
         style={{
+          marginTop: 10,
           justifyContent: 'space-between',
           alignItems: 'center',
           flex: 2,
+          flexDirection: 'row',
         }}
       >
         <View
           style={{
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             alignItems: 'center',
-            flexDirection: 'row',
-            flex: 1,
+            flex: 3,
           }}
         >
           <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
-          <Text style={{ fontSize: 15, color: primary, marginLeft: 15 }}>
-            Age - 16
-          </Text>
+          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
         </View>
         <View
           style={{
             justifyContent: 'space-between',
             alignItems: 'center',
-            flexDirection: 'row',
+            flex: 3,
           }}
         >
           <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
-          <Text style={{ fontSize: 15, color: primary, marginLeft: 15 }}>
-            Age - 16
-          </Text>
+          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
         </View>
-      </View>
-      <View
-        style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Text
+        <View
           style={{
-            fontSize: 35,
-            color: primary,
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flex: 3,
           }}
         >
-          35%
-        </Text>
+          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+          <Text style={{ fontSize: 15, color: primary }}>Age - 16</Text>
+        </View>
       </View>
     </TouchableOpacity>
   )
 }
 
-const Home = ({ navigation }): React.ReactElement => {
-  const reduxUser = useReduxSelector(selectUser)
-  const data = [
-    {
-      name: 'Bob Joe',
-      id: '1',
-    },
-    {
-      name: 'John Doe',
-      id: '2',
-    },
-    {
-      name: 'Jane Doe',
-      id: '3',
-    },
-  ]
-
+const Home = ({ route, navigation }): React.ReactElement => {
   const renderItem = ({ item }) => {
     return <Item item={item} onPress={() => {}} />
   }
+
+  console.log(route.params.Home)
 
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
@@ -150,7 +152,7 @@ const Home = ({ navigation }): React.ReactElement => {
         }}
       >
         <FlatList
-          data={data}
+          data={route.params.Home ? NPatients : Patients}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-start' }}

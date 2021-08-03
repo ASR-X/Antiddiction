@@ -7,7 +7,7 @@ export enum MainRoutes {
 }
 
 export type MainStackParamList = {
-  [MainRoutes.Home]: { update: boolean } | undefined // just an example, "update" will later be used for version checks
+  [MainRoutes.Home]: { Home: boolean } | undefined // just an example, "update" will later be used for version checks
   [MainRoutes.NavBar]: undefined
   [MainRoutes.Plus]: undefined
 }
