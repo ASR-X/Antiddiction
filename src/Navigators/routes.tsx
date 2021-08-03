@@ -18,7 +18,7 @@ export enum MainRoutes {
   Calendar = 'Calendar',
   Analytics = 'Analytics',
   Connect = 'Connect',
-  QRCode = 'qr code',
+  QRCode = 'QRCode',
 }
 
 export type MainStackParamList = {

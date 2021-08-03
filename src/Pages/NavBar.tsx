@@ -56,6 +56,9 @@ const NavBar = (): React.ReactElement => {
             iconName = focused ? 'people' : 'people-outline'
           }
 
+          const ProfileStack = createStackNavigator()
+          const UsFoodsStack = createStackNavigator()
+          const Tab = createBottomTabNavigator()
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />
         },
