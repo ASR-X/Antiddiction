@@ -17,7 +17,7 @@ import { MainRoutes } from '../Navigators/routes'
 
 //Colors
 import { Colors, ProfilePicture } from '../Components/styles'
-import Plus from './Plus'
+import {Plus} from './Plus'
 // import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
@@ -26,38 +26,14 @@ const { primary, white, black } = Colors
 const HomeStack = createStackNavigator()
 
 const NavBar = (): React.ReactElement => {
-  const Tab = createBottomTabNavigator()
   return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let iconName
-          if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline'
-          } else if (route.name === 'Analytics') {
-            iconName = focused ? 'podium' : 'podium-outline'
-          } else if (route.name === 'Calendar') {
-            iconName = focused ? 'calendar' : 'calendar-outline'
-          } else if (route.name === 'Connect') {
-            iconName = focused ? 'people' : 'people-outline'
-          }
-          // You can return any component that you like here!
-          return <Ionicons name={iconName} size={size} color={color} />
-        },
-      })}
-      tabBarOptions={{
-        activeTintColor: primary,
-        inactiveTintColor: 'gray',
-      }}
-    >
-      <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
-    </Tab.Navigator>
+    <HomeStackScreen />
   )
 }
 
 export default NavBar
 
-const HomeStackScreen = ({ navigation }) => {
+const HomeStackScreen = () => {
   return (
     <HomeStack.Navigator
       screenOptions={{
@@ -72,7 +48,7 @@ const HomeStackScreen = ({ navigation }) => {
       <HomeStack.Screen
         name={MainRoutes.Home}
         component={Home}
-        options={{
+        options={ ({ navigation }) => ({
           title: 'Patients',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerTitleStyle: {
@@ -87,7 +63,7 @@ const HomeStackScreen = ({ navigation }) => {
               <PlusIcon navigation={navigation} />
             </View>
           ),
-        }}
+        })}
       />
 
       <HomeStack.Screen
@@ -95,8 +71,7 @@ const HomeStackScreen = ({ navigation }) => {
         name={MainRoutes.Plus}
         options={{
           title: 'Plus sign',
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
+          headerShown: false,
         }}
       />
     </HomeStack.Navigator>

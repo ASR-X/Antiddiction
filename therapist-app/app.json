@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Vmware Dev",
-    "slug": "vmware-dev",
-    "scheme": "vnwaredev",
+    "name": "Therapist Dev",
+    "slug": "therapist-dev",
+    "scheme": "therapistdev",
     "android": {
-      "package": "com.vmwaredev"
+      "package": "com.therapistdev"
     },
     "userInterfaceStyle": "automatic"
   }

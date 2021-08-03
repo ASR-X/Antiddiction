@@ -32,18 +32,7 @@ const { greyLight, white, grey, primary, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 
-const Plus = ({ navigation }): React.ReactElement => {
-  const dispatch = useReduxDispatch()
-  return (
-    <View style={{ backgroundColor: white, flex: 1 }}>
-      <View
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-      ></View>
-    </View>
-  )
-}
-
-export default function App() {
+export const Plus = ({ navigation }): React.ReactElement => {
   const [hasPermission, setHasPermission] = useState(null)
   const [scanned, setScanned] = useState(false)
 
@@ -67,15 +56,11 @@ export default function App() {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: white,
-        }}>
+    <View style={{ flex: 1, backgroundColor: black}}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
+        style={{flex: 1}}
       />
-      {scanned && (
-        <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />
-      )}
     </View>
   )
 }
