@@ -89,7 +89,6 @@ const Analytics = ({ navigation }): React.ReactElement => {
           marginTop: 10,
         }}
       >
-       
         <Text
           style={{
             fontSize: 18,
@@ -120,7 +119,6 @@ const Analytics = ({ navigation }): React.ReactElement => {
       </SafeAreaView>
     </View>
   )
-
 }
 
 export default Analytics
