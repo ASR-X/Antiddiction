@@ -17,6 +17,8 @@
     "expo-linking": "~2.3.1",
     "lodash": "4.17.21",
     "native-base": "^3.0.3",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -69,7 +71,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "tsc --noEmit && eslint --ext .js,.jsx,.ts,.tsx ./ || true",
-    "fix": "tsc --noEmit && eslint --fix --ext .js,.jsx,.ts,.tsx ./ || true"
+    "fix": "tsc --noEmit && eslint --fix --ext .js,.jsx,.ts,.tsx ./ || true",
+    "postinstall": "patch-package"
   },
   "resolutions": {
     "react-devtools-core": "4.13.4"
