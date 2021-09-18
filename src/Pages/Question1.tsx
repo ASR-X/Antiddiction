@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusBar, View, StyleSheet, TextInput } from 'react-native'
+import { StatusBar, View, StyleSheet, TextInput, TouchableWithoutFeedback } from 'react-native'
 
 import { MainRoutes } from '../Navigators/routes'
 import {
@@ -21,6 +21,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import { justifyContent } from 'styled-system'
 import { useReduxDispatch, useReduxSelector } from '../Redux'
 import userSlice, { selectUser } from '../Redux/slices/user'
+import {Keyboard} from 'react-native'
 
 const { primary, white, grey, black } = Colors
 
@@ -30,6 +31,7 @@ export const Question1 = ({ navigation }): React.ReactElement => {
   const dispatch = useReduxDispatch()
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={{ flex: 1, backgroundColor: white }}>
       <StatusBar barStyle="light-content" />
       <QuestionHeaderView />
@@ -68,6 +70,7 @@ export const Question1 = ({ navigation }): React.ReactElement => {
         </QuestionNextButton>
       </Animatable.View>
     </View>
+    </TouchableWithoutFeedback>
   )
 }
 
