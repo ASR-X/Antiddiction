@@ -86,8 +86,11 @@ const HomeStackScreen = ({ navigation }) => {
         component={Home}
         options={{
           title: 'Home',
-          headerLeftContainerStyle: { marginLeft: 10, alignContent: 'flex-start',
-          justifyContent: 'flex-start', flex:1, 
+          headerLeftContainerStyle: {
+            marginLeft: 10,
+            alignContent: 'flex-start',
+            justifyContent: 'flex-start',
+            flex: 1,
           },
           headerTitleStyle: {
             // marginTop: 30,
@@ -96,7 +99,7 @@ const HomeStackScreen = ({ navigation }) => {
             fontSize: 60,
             width: 400,
             height: 80,
-            marginTop: 15
+            marginTop: 15,
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
@@ -143,7 +146,7 @@ const CalendarStackScreen = ({ navigation }) => {
         component={DateList}
         options={{
           title: 'Calendars',
-          headerLeftContainerStyle: { marginLeft: 10},
+          headerLeftContainerStyle: { marginLeft: 10 },
           headerTitleStyle: {
             //marginTop: 30,
             fontWeight: 'bold',
@@ -151,7 +154,7 @@ const CalendarStackScreen = ({ navigation }) => {
             fontSize: 60,
             width: 400,
             height: 80,
-            marginTop: 15
+            marginTop: 15,
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
@@ -165,8 +168,6 @@ const CalendarStackScreen = ({ navigation }) => {
           ),
         }}
       />
-
-      
     </CalendarStack.Navigator>
   )
 }
@@ -195,7 +196,7 @@ const GraphsStackScreen = ({ navigation }) => {
             fontSize: 60,
             width: 400,
             height: 80,
-            marginTop: 15
+            marginTop: 15,
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
