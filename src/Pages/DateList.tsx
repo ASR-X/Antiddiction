@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 
 import { MainRoutes } from '../Navigators/routes'
 
@@ -70,8 +70,53 @@ const { primary, white, grey, black } = Colors
 //Icons
 import { Ionicons, Fontisto } from '@expo/vector-icons'
 import { width } from 'styled-system'
+import { blue100 } from 'react-native-paper/lib/typescript/styles/colors'
 
 const DateList = ({ navigation }): React.ReactElement => {
+  const reduxUser = useReduxSelector(selectUser)
+  const [current, setCurrent] = useState(new Date())
+  const doses = useMemo( () => {
+    const doses = []
+    for (let i = 0; i < reduxUser.dose.length; i++) {
+      doses.push(new Date(reduxUser.dose[i]))
+    }
+    doses.sort((a,b)=>a-b)
+    return doses
+  }, [reduxUser.dose]) 
+  
+  console.log(reduxUser)
+
+  const convertDate = useMemo( () => {
+    // const offset = current.getTimezoneOffset()
+    // var date = new Date(current.getTime() - (offset*60*1000))
+    return current.toISOString().split('T')[0]
+  }, [current])
+
+  const today = useMemo( () => {
+    const today = new Date()
+    return today.toISOString().split('T')[0]
+  }, [])
+
+  const selectedDate = useMemo( () => {
+    var obj = {};
+    // const offset = current.getTimezoneOffset()
+    // var date = new Date(current.getTime() - (offset*60*1000))
+    var string = current.toISOString().split('T')[0]
+    obj[string] = {selected: true, selectedColor: primary};
+    return obj
+  }, [current])
+
+  const doseDate = useMemo( () => {
+    return doses[doses.length - 1].toISOString().split('T')[0]
+  }, [doses])
+
+  const riskDay = useMemo( () => {
+    const today = new Date()
+    const diff = current - today
+    const diffDays = Math.ceil(diff / (1000 * 60 * 60 * 24))
+    return Math.round(reduxUser.probs[diffDays] * 100 * 100) / 100
+  }, [current, doses, reduxUser.probs])
+  
   return (
     <View style={{ flex: 1, backgroundColor: white }}>
       <SafeAreaView
@@ -89,7 +134,7 @@ const DateList = ({ navigation }): React.ReactElement => {
             borderWidth: 2,
             borderRadius: 15,
             borderColor: 'blue',
-            height: 340,
+            height: 370,
             marginTop: 30,
             marginLeft: 15,
             marginRight: 15,
@@ -100,7 +145,13 @@ const DateList = ({ navigation }): React.ReactElement => {
             textDayFontSize: 14,
             textMonthFontSize: 14,
             textDayHeaderFontSize: 14,
+            todayTextColor: primary,
+            arrowColor: primary,
           }}
+          markedDates={selectedDate}
+          minDate={today}
+          //current={current}
+          onDayPress={(day) => {setCurrent(new Date(day.dateString))}}
         />
         <View
           style={{
@@ -132,7 +183,7 @@ const DateList = ({ navigation }): React.ReactElement => {
                 color: white,
               }}
             >
-              {1.42}%
+              {riskDay}%
             </Text>
             <Text
               style={{
@@ -142,7 +193,7 @@ const DateList = ({ navigation }): React.ReactElement => {
                 marginTop: -7,
               }}
             >
-              Aug 3
+              {convertDate}
             </Text>
           </View>
         </View>

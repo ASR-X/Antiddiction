@@ -23,6 +23,7 @@ import { MainRoutes } from './../Navigators/routes'
 import { Colors, ProfilePicture, QuestionText } from '../Components/styles'
 import { DrawerActions, NavigationContainer } from '@react-navigation/native'
 import QRCode from './QRCode'
+import { height, width } from 'styled-system'
 // import QRCode from './QRCode'
 
 const { primary, white, black } = Colors
@@ -31,7 +32,6 @@ const { primary, white, black } = Colors
 const HomeStack = createStackNavigator()
 const CalendarStack = createStackNavigator()
 const GraphStack = createStackNavigator()
-const ConnectStack = createStackNavigator()
 
 const NavBar = (): React.ReactElement => {
   const Tab = createBottomTabNavigator()
@@ -61,8 +61,8 @@ const NavBar = (): React.ReactElement => {
     >
       <Tab.Screen name={MainRoutes.Home} component={HomeStackScreen} />
       <Tab.Screen name={MainRoutes.DateList} component={CalendarStackScreen} />
-      <Tab.Screen name={MainRoutes.Analytics} component={Analytics} />
-      <Tab.Screen name={MainRoutes.Connect} component={Connect} />
+      <Tab.Screen name={MainRoutes.Analytics} component={GraphsStackScreen} />
+      {/* <Tab.Screen name={MainRoutes.Connect} component={Connect} /> */}
     </Tab.Navigator>
   )
 }
@@ -86,12 +86,17 @@ const HomeStackScreen = ({ navigation }) => {
         component={Home}
         options={{
           title: 'Home',
-          headerLeftContainerStyle: { marginLeft: 10 },
+          headerLeftContainerStyle: { marginLeft: 10, alignContent: 'flex-start',
+          justifyContent: 'flex-start', flex:1, 
+          },
           headerTitleStyle: {
-            marginTop: 30,
+            // marginTop: 30,
             fontWeight: 'bold',
             color: primary,
             fontSize: 60,
+            width: 400,
+            height: 80,
+            marginTop: 15
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
@@ -99,7 +104,7 @@ const HomeStackScreen = ({ navigation }) => {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginTop: 40,
+                marginTop: 10,
               }}
             >
               <QRComp navigation={navigation} />
@@ -138,12 +143,15 @@ const CalendarStackScreen = ({ navigation }) => {
         component={DateList}
         options={{
           title: 'Calendars',
-          headerLeftContainerStyle: { marginLeft: 10 },
+          headerLeftContainerStyle: { marginLeft: 10},
           headerTitleStyle: {
-            marginTop: 30,
+            //marginTop: 30,
             fontWeight: 'bold',
             color: primary,
             fontSize: 60,
+            width: 400,
+            height: 80,
+            marginTop: 15
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
@@ -151,25 +159,18 @@ const CalendarStackScreen = ({ navigation }) => {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginTop: 40,
+                //marginTop: 40,
               }}
             ></View>
           ),
         }}
       />
 
-      <HomeStack.Screen
-        component={QRCode}
-        name={MainRoutes.QRCode}
-        options={{
-          title: 'QR Code',
-          headerBackTitleVisible: false,
-          headerLeftContainerStyle: { marginLeft: 10 },
-        }}
-      />
+      
     </CalendarStack.Navigator>
   )
 }
+
 const GraphsStackScreen = ({ navigation }) => {
   return (
     <GraphStack.Navigator
@@ -189,10 +190,12 @@ const GraphsStackScreen = ({ navigation }) => {
           title: 'Analytics',
           headerLeftContainerStyle: { marginLeft: 10 },
           headerTitleStyle: {
-            marginTop: 30,
             fontWeight: 'bold',
             color: primary,
             fontSize: 60,
+            width: 400,
+            height: 80,
+            marginTop: 15
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (

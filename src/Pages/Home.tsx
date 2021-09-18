@@ -164,7 +164,7 @@ const Home = ({ navigation }): React.ReactElement => {
           flex: 1,
           backgroundColor: white,
           alignContent: 'center',
-          marginTop: 30,
+          //marginTop: 30,
         }}
       >
         <View

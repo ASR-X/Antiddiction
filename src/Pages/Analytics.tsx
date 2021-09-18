@@ -66,6 +66,7 @@ const Analytics = ({ navigation }): React.ReactElement => {
           flex: 1,
           backgroundColor: white,
           alignContent: 'center',
+          justifyContent: 'center',
           marginTop: 10,
         }}
       >
