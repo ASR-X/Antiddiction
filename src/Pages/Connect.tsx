@@ -6,7 +6,7 @@ import { MainRoutes } from '../Navigators/routes'
 import CardView from '../Components/CardView'
 import { BezierGraph } from '../Components/BezierGraph'
 import { ProgressRings } from '../Components/ProgressRings'
-import { ChonseSelect } from 'react-native-chonse-select'
+import ChonseSelect from '../Components/ChonseSelect'
 
 //Data
 import RecentlyViewed from '../Data/RecentlyViewed'

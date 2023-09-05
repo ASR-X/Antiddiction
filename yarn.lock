@@ -11755,11 +11755,6 @@ react-native-chart-kit@^6.11.0:
     paths-js "^0.4.10"
     point-in-polygon "^1.0.1"
 
-react-native-chonse-select@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/react-native-chonse-select/-/react-native-chonse-select-1.0.5.tgz#c066c1981397f4251dda0c246bf4d7dc9d843ca8"
-  integrity sha512-lRQe1drafQwRjRgVLWc6+wcG1b1yIOeNjgWESiiYAeC5fsJLwDAekFSFBWidaHuk1cE7lNV6JYsFkDkNGh1EIA==
-
 react-native-codegen@^0.0.13:
   version "0.0.13"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.13.tgz#4cc94546fc75a5dbe9350d59c10108f2efe6bc17"

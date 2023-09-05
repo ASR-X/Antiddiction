@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react'
-import { ProgressRings } from '../Components/ProgressRings'
-import { ChonseSelect } from 'react-native-chonse-select'
+import { ProgressRings } from '../Components/ProgressRings''
 
 const data = [
   {
