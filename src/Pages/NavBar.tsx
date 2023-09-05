@@ -87,7 +87,7 @@ const HomeStackScreen = ({ navigation }) => {
         options={{
           title: 'Home',
           headerLeftContainerStyle: {
-            marginLeft: 10,
+            marginLeft: 20,
             alignContent: 'flex-start',
             justifyContent: 'flex-start',
             flex: 1,
@@ -100,6 +100,7 @@ const HomeStackScreen = ({ navigation }) => {
             width: 400,
             height: 80,
             marginTop: 15,
+            marginLeft: 40,
           },
           headerRightContainerStyle: { marginRight: 10 },
           headerRight: () => (
